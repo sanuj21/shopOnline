@@ -85,8 +85,11 @@
 
     @include respond(phone) {
       width: 100%;
-      padding: .8rem;
+      padding: 1rem;
+      margin-bottom: 0;
+      margin-top: 0;
     }
+
   }
 
   // Category Card
@@ -99,8 +102,6 @@
     width: 28rem;
 
     &__img {
-      // width: 100%;
-      // max-height: 28rem;
       position: relative;
 
       height: 28rem;
@@ -172,9 +173,16 @@
     }
 
     @include respond(phone) {
+      margin-top: 1rem;
       width: 96%;
     }
 
   }
 
+}
+
+
+.productList {
+  margin-top: 3rem !important;
+  margin-bottom: 5rem !important;
 }

@@ -12,7 +12,7 @@ mixin navSecondaryItem(list, productCat)
 
   -if(list === false)
     .navigation__secondary__item
-      a.navigation__secondary__link(href = `/cart`)
+      a.navigation__secondary__link(href = `#`)
         span.navigation__secondary__link__text #{productCat}  
         
 // Mobile Nav mixin
@@ -86,12 +86,16 @@ mixin headerUserInfo(label, route)
       -if(user)  
         a.modalNav__header__title(href='/myAccount')
           ion-icon.person-icon--mobile(name='person-circle-outline')
-          span.modalNav__header__title__text= user.name
+          span.modalNav__header__title__text= `${user.name.split(' ')[0]}`
       ion-icon.modalNav__close(name='close-outline')
     .modalNav__body
       .modalNav__body__list
         +mobileNavItem('Home', '')
         +mobileNavItem('Orders', 'myAccount/orders')
         +mobileNavItem('Account', 'myAccount')
-        +mobileNavItem(`Today's Deal`, 'offers')
-        +mobileNavItem('Contact us', 'contact')
+        +mobileNavItem(`Today's Deal`, '#')
+        +mobileNavItem('Contact us', '#')
+        -if(user)
+          a.modalNav__body__list__item.btn--logout Logout
+        -else
+          a.modalNav__body__list__item(href='/login') Login

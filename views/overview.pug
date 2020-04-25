@@ -8,7 +8,7 @@ block content
       .row
         .heading.heading--tertiary.heading--category Shop By Category
 
-    .row 
+    .row.u-margin-top-small
       each el in productSubCategory 
         .col-1-of-4
           a.card.card--category(href=`/products/${el.slug}`)
@@ -38,8 +38,8 @@ block content
     .row
       .col-1-of-2
         .pay_online_content
-          .heading.heading--primary Pay Online and get flat 30% cashback
-          .pay_online_terms [ Maximum cashback upto &#8377;499 ]
+          .heading.heading--primary.heading--design2 Pay Online and get flat 30% cashback
+          .pay_online_terms (Maximum cashback upto &#8377;499)
           p.para.pay_online--para 
             |  Lorem Ipsum is simply dummy text of the printing and typesetting
             |  industry. Lorem Ipsum has been the industry's standard dummy text

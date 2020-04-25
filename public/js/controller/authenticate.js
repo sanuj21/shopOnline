@@ -18,7 +18,7 @@ export const login = async (email, password, st = '') => {
       }
     });
     if (st === 'booking') {
-      utilities.renderAlertPrimary(res, 'Logged in successfully', true); // Just Reload , if the user coming from booking
+      utilities.renderAlertSecondary('Logged in successfully', true); // Just Reload , if the user coming from booking
     } else {
       if (
         res.data.status === 'error' &&
@@ -28,8 +28,6 @@ export const login = async (email, password, st = '') => {
         customAlerts.alertSecondary(
           `We've sent you a email!!! Please confirm it to activate your account!!`
         );
-      } else {
-        utilities.renderAlertPrimary(res, 'Logged in successfully');
       }
     }
   } catch (err) {
@@ -46,7 +44,7 @@ export const logout = async () => {
       url: `/api/v1/users/logout`
     });
 
-    utilities.renderAlertPrimary(res, 'Logged out successfully');
+    utilities.renderAlertSecondary('Logged out successfully', false, '/');
   } catch (err) {
     utilities.renderAlertSecondary(err.response.data.message);
   }
@@ -75,20 +73,27 @@ export const signup = async (
     if (st === 'booking') {
       const redirectUrl = window.location.pathname.replace('/signup', '');
       // Get Back to the booking process after signup
-      utilities.renderAlertPrimary(
-        res,
+      utilities.renderAlertSecondary(
         'Account created successfully!!',
         false,
         redirectUrl
       );
     }
-    if (res.data.status === 'error' && res.data.issue === 'emailNotConfirmed') {
+    if (
+      res.data &&
+      res.data.status === 'error' &&
+      res.data.issue === 'emailNotConfirmed'
+    ) {
       // Create a modal popup
       customAlerts.alertSecondary(
         `We've sent you a email!!! Please confirm it to activate your account!!`
       );
     } else {
-      utilities.renderAlertPrimary(res, 'Account Created successfully');
+      utilities.renderAlertSecondary(
+        'Account Created successfully',
+        false,
+        '/'
+      );
     }
   } catch (err) {
     utilities.renderAlertSecondary(err.response.data.message);
@@ -108,7 +113,8 @@ export const updateProfile = async (name, email) => {
       }
     });
 
-    utilities.renderAlertPrimary(res, 'Your Profile Updated successfully!!');
+    if (res.data.staus === 'success')
+      utilities.renderAlertSecondary('Your Profile Updated successfully!!');
   } catch (err) {
     utilities.renderAlertSecondary(err.response.data.message);
   }
@@ -131,8 +137,8 @@ export const changePassword = async (
         confirmPassword
       }
     });
-
-    utilities.renderAlertPrimary(res, 'Your password changed successfully!!');
+    if (res.data.staus === 'success')
+      utilities.renderAlertSecondary('Your password changed successfully!!');
   } catch (err) {
     utilities.renderAlertSecondary(err.response.data.message);
   }
@@ -149,7 +155,8 @@ const resAddEditAddress = (res, st, msg) => {
       sessionStorage.getItem('chooseAddressRoute')
     );
   } else {
-    utilities.renderAlertPrimary(res, msg, false, '/myAccount/addresses');
+    if (res.data.staus === 'success')
+      utilities.renderAlertSecondary(msg, false, '/myAccount/addresses');
   }
 };
 
@@ -198,7 +205,7 @@ export const deleteAddress = async id => {
       url: `/api/v1/users/deleteAddress/${id}`
     });
 
-    utilities.renderAlertPrimary(res, 'Address deleted succesfully!!', true);
+    utilities.renderAlertSecondary(res, 'Address deleted succesfully!!', true);
   } catch (err) {
     utilities.renderAlertSecondary(err.response.data.message);
   }
@@ -261,7 +268,7 @@ export const addProductToCart = async (product, quantity) => {
           quantity
         }
       });
-      utilities.renderAlertPrimary(res, 'Item Added to Cart', true);
+      utilities.renderAlertSecondary('Item Added to Cart', true);
     } else if (baseView.DOMElements.navigation.dataset.user === 'false') {
       // When the user exist than ,than the item is not going to save in cookie
       // Storing the Product Id and quantity in cookie as a cartItem in [array of obj cart]
@@ -280,7 +287,7 @@ export const addProductToCart = async (product, quantity) => {
         if (i === cart.length) {
           cart[l] = cartItem;
         } else {
-          customAlerts.alertPrimary('error', 'Item already exist in cart');
+          utilities.renderAlertSecondary('Item already exist in cart');
           return;
         }
       } else {
@@ -291,7 +298,7 @@ export const addProductToCart = async (product, quantity) => {
       // ####
     }
   } catch (err) {
-    customAlerts.alertPrimary('error', err.response.data.message, true);
+    utilities.renderAlertSecondary(err.response.data.message);
   }
 };
 
@@ -308,7 +315,7 @@ export const removeCartItem = async product => {
           product
         }
       });
-      utilities.renderAlertPrimary(res, 'Removed from cart', true);
+      utilities.renderAlertSecondary('Removed from cart', true);
     } else if (baseView.DOMElements.navigation.dataset.user === 'false') {
       let cart = utilities.getCookie('cart');
       cart = JSON.parse(cart);
@@ -319,7 +326,7 @@ export const removeCartItem = async product => {
         }
       }
       utilities.createCookie('cart', JSON.stringify(cart), 10);
-      utilities.renderAlertPrimary('true', 'Removed from cart', true);
+      utilities.renderAlertSecondary('Removed from cart', true);
     }
   } catch (err) {
     utilities.renderAlertSecondary(err.response.data.message);
@@ -385,10 +392,9 @@ export const addProductToBooking = async (userId, productId = null) => {
         }
       });
 
-      utilities.renderAlertPrimary(
-        res,
-        'Congratulation!!, Your booking has been confirmed.'
-      );
+      if (res.data.status === 'success') {
+        window.location.assign('/users/orderConfirmed');
+      }
     } else {
       const product = new BookingProduct(
         productId,

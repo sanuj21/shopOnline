@@ -8,7 +8,7 @@ block content
       -else
         .heading.heading--tertiary.u-margin-top-medium= `Showing result for your search "${searchQuery}" :`
 
-    .row
+    .row.productList
       each el in products
         .col-1-of-4
           a.card.card--deal(href=`/products/${el.productSubCategory.slug}/${el.slug}`)
@@ -20,6 +20,9 @@ block content
               .card--deal__price--current &#8377;#{el.sellingPrice}
               .card--deal__price--mrp &#8377;#{el.mrp}
               .card--deal__price__offPercent  #{el.off}% off
+    .row
+      .u-center
+        .para--small.color--error Currently, We have only this products in this category!!
 
   -else if(!searchQuery)
     .row 
