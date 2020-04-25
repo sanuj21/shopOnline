@@ -62,7 +62,7 @@ export const showCart = user => {
     } else {
       const res = await axios({
         method: 'POST',
-        url: `http://${ipAddr}:2000/myAccount/cart`
+        url: `/myAccount/cart`
       });
     }
   };

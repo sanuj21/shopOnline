@@ -6,17 +6,12 @@ import BookingProduct from '../model/BookingProduct';
 import CartProduct from '../model/CartProduct';
 import * as utilities from './utilities';
 
-// For Testing Purpose
-const isMobile = /Android/i.test(navigator.userAgent);
-let ipAddr = baseView.variables.computerIp;
-if (isMobile === true) ipAddr = baseView.variables.mobileIp;
-
 /*------ WHEN LOGIN ROUTE IS HITTED -----*/
 export const login = async (email, password, st = '') => {
   try {
     const res = await axios({
       method: 'POST',
-      url: `http://${ipAddr}:2000/api/v1/users/login`,
+      url: `/api/v1/users/login`,
       data: {
         email,
         password
@@ -48,7 +43,7 @@ export const logout = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: `http://${ipAddr}:2000/api/v1/users/logout`
+      url: `/api/v1/users/logout`
     });
 
     utilities.renderAlertPrimary(res, 'Logged out successfully');
@@ -69,7 +64,7 @@ export const signup = async (
   try {
     const res = await axios({
       method: 'POST',
-      url: `http://${ipAddr}:2000/api/v1/users/signup`,
+      url: `/api/v1/users/signup`,
       data: {
         name,
         email,
@@ -106,7 +101,7 @@ export const updateProfile = async (name, email) => {
   try {
     const res = await axios({
       method: 'PATCH',
-      url: `http://${ipAddr}:2000/api/v1/users/updateMe`,
+      url: `/api/v1/users/updateMe`,
       data: {
         name: name,
         email: email
@@ -129,7 +124,7 @@ export const changePassword = async (
   try {
     const res = await axios({
       method: 'PATCH',
-      url: `http://${ipAddr}:2000/api/v1/users/changePassword`,
+      url: `/api/v1/users/changePassword`,
       data: {
         currentPassword,
         newPassword,
@@ -163,7 +158,7 @@ export const addAddress = async (addressInfo, st = '') => {
   try {
     const res = await axios({
       method: 'PATCH',
-      url: `http://${ipAddr}:2000/api/v1/users/addAddress`,
+      url: `/api/v1/users/addAddress`,
       data: {
         addressInfo
       }
@@ -181,7 +176,7 @@ export const updateAddress = async (addressInfo, id, st = '') => {
   try {
     const res = await axios({
       method: 'PATCH',
-      url: `http://${ipAddr}:2000/api/v1/users/updateAddress/${id}`,
+      url: `/api/v1/users/updateAddress/${id}`,
       data: {
         addressInfo
       }
@@ -200,7 +195,7 @@ export const deleteAddress = async id => {
   try {
     const res = await axios({
       method: 'PATCH',
-      url: `http://${ipAddr}:2000/api/v1/users/deleteAddress/${id}`
+      url: `/api/v1/users/deleteAddress/${id}`
     });
 
     utilities.renderAlertPrimary(res, 'Address deleted succesfully!!', true);
@@ -215,7 +210,7 @@ export const forgetPassword = async email => {
   try {
     const res = await axios({
       method: 'POST',
-      url: `http://${ipAddr}:2000/api/v1/users/forgetPassword`,
+      url: `/api/v1/users/forgetPassword`,
       data: {
         email
       }
@@ -233,7 +228,7 @@ export const resetPassword = async (password, passwordConfirm, resetToken) => {
   try {
     const res = await axios({
       method: 'PATCH',
-      url: `http://${ipAddr}:2000/api/v1/users/resetPassword/${resetToken}`,
+      url: `/api/v1/users/resetPassword/${resetToken}`,
       data: {
         password,
         passwordConfirm
@@ -260,7 +255,7 @@ export const addProductToCart = async (product, quantity) => {
     if (baseView.DOMElements.navigation.dataset.user === 'true') {
       const res = await axios({
         method: 'PATCH',
-        url: `http://${ipAddr}:2000/api/v1/users/product/addToCart`,
+        url: `/api/v1/users/product/addToCart`,
         data: {
           product,
           quantity
@@ -308,7 +303,7 @@ export const removeCartItem = async product => {
     if (baseView.DOMElements.navigation.dataset.user === 'true') {
       const res = await axios({
         method: 'PATCH',
-        url: `http://${ipAddr}:2000/api/v1/users/product/deleteFromCart`,
+        url: `/api/v1/users/product/deleteFromCart`,
         data: {
           product
         }
@@ -339,7 +334,7 @@ export const updateProductCart = async (product, quantity) => {
     if (baseView.DOMElements.navigation.dataset.user === 'true') {
       await axios({
         method: 'PATCH',
-        url: `http://${ipAddr}:2000/api/v1/users/product/updateProductCart/${product}`,
+        url: `/api/v1/users/product/updateProductCart/${product}`,
         data: {
           quantity
         }
@@ -372,7 +367,7 @@ export const addProductToBooking = async (userId, productId = null) => {
     if (!productId) {
       const cartRes = await axios({
         method: 'GET',
-        url: `http://${ipAddr}:2000/api/v1/users/getCartProducts`
+        url: `/api/v1/users/getCartProducts`
       });
 
       let product = [];
@@ -384,7 +379,7 @@ export const addProductToBooking = async (userId, productId = null) => {
       }
       const res = await axios({
         method: 'POST',
-        url: `http://${ipAddr}:2000/api/v1/users/${userId}/bookings`,
+        url: `/api/v1/users/${userId}/bookings`,
         data: {
           product
         }
@@ -402,7 +397,7 @@ export const addProductToBooking = async (userId, productId = null) => {
 
       const res = await axios({
         method: 'POST',
-        url: `http://${ipAddr}:2000/api/v1/users/${userId}/bookings`,
+        url: `/api/v1/users/${userId}/bookings`,
         data: {
           product
         }
@@ -445,7 +440,7 @@ export const cancelOrder = (orderId, userId) => {
     try {
       const res = await axios({
         method: 'PATCH',
-        url: `http://${ipAddr}:2000/api/v1/users/${userId}/bookings/${orderId}`,
+        url: `/api/v1/users/${userId}/bookings/${orderId}`,
         data: {
           status: 'cancelled'
         }

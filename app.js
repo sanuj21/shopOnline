@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const xss = require('xss-clean');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const productCategoryRouter = require('./routes/productCategoryRoutes');
 const productSubCategoryRouter = require('./routes/productSubCategoryRoutes');
@@ -49,6 +50,8 @@ app.use(cookieParser());
 
 // Data sanitization agains xss
 app.use(xss());
+
+app.use(compression());
 
 app.use('/', viewRouter);
 app.use('/api/v1/productCategories', productCategoryRouter);

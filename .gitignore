@@ -4,6 +4,7 @@ Data Models/
 SVG/
 *.xd
 Mobile Home.pdf
-config.env
+*.env
 Mobile Home.png
 todo.txt
+.cache/

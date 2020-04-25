@@ -90,11 +90,6 @@ export const DOMElements = {
 
 /*-------------- Varibales ----------------*/
 
-export const variables = {
-  mobileIp: '192.168.0.111',
-  computerIp: '127.0.0.1'
-};
-
 /* ########### */
 
 /*---- FOR TOGGLING THE MOBILE NAVIGATION ----*/
