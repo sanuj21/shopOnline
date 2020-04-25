@@ -3,11 +3,6 @@ import * as authenticate from '../controller/authenticate';
 import axios from 'axios';
 import * as utilities from '../controller/utilities';
 
-// For Testing Purpose
-const isMobile = /Android/i.test(navigator.userAgent);
-let ipAddr = baseView.variables.computerIp;
-if (isMobile === true) ipAddr = baseView.variables.mobileIp;
-
 // Updating the total cart Price of cart
 const updateCartTotalPrice = (exAmt, st) => {
   const tPrice = Number(
