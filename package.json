@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compileSass": "node-sass ./sass/main.scss ./public/css/style.css -w",
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "startApp_dev": "nodemon server.js",
     "watchJs": "parcel watch ./public/js/main.js --out-dir ./public/js --out-file bundle.js",
     "buildJs": "parcel build ./public/js/main.js --out-dir ./public/js --out-file bundle.js",
