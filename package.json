@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "compileSass": "node-sass ./sass/main.scss ./public/css/style.css -w",
-    "startApp": "nodemon server.js",
+    "start": "nodemon server.js"
+    "startApp_dev": "nodemon server.js",
     "watchJs": "parcel watch ./public/js/main.js --out-dir ./public/js --out-file bundle.js",
     "buildJs": "parcel build ./public/js/main.js --out-dir ./public/js --out-file bundle.js",
     "debug": "ndb server.js"
@@ -48,5 +49,8 @@
     "eslint-plugin-react": "^7.18.3",
     "parcel-bundler": "^1.12.4",
     "prettier": "^1.19.1"
+  },
+  "engines": {
+    "node":">=10.0.0"
   }
 }
