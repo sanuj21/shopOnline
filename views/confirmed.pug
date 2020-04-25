@@ -1,0 +1,23 @@
+extends base
+
+block content 
+  -if(status === 'order')
+    .row 
+      .notice
+        .notice__body Congratulations!! Your order has been successfully placed!
+          br
+          |Your order details has been sent to your registerd email #{user.email}. Do check it!!
+        .notice__footer
+          a.btnDesign--primary(href='/myAccount/orders') Go to My Orders
+            span.btn--arrowIcon &rarr; 
+        
+  -else if(status === 'email')
+    .row 
+      .notice
+        .notice__header Email Confirmed!!
+        .notice__body Congratulations!! Your email has been confirmed!!! 
+          br
+          | Welcome to our Family buddy!!
+      
+
+

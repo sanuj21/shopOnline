@@ -1,0 +1,42 @@
+extends base
+
+block content
+  .row
+    .myOrder.heading.heading--tertiary.u-margin-top-medium.u-margin-bottom-medium My Orders
+
+  each booking in bookings
+    .row 
+      .myOrder
+        .myOrder__header
+          .fixed-col-1-of-3.myOrder__header__col
+            .myOrder__orderDate
+              .myOrder__orderDate__label Ordered on:  
+              .myOrder__orderDate__data= `${booking.bookedOn.toLocaleString('en-us', {day: 'numeric', month: 'long'})}`
+          .fixed-col-1-of-3
+            .myOrder__expectedDate 
+              .myOrder__orderDate__label Expected on:  
+              .myOrder__orderDate__data= `${booking.expectedDelivery.toLocaleString('en-us', {day: 'numeric', month: 'long'})}`
+          .fixed-col-1-of-3.myOrder__header__col
+            .myOrder__price 
+              -let total = 0;
+              -for(let i = 0; i < booking.product.length; i++) 
+                -total = booking.product[i].productId.sellingPrice * booking.product[i].quantity
+              .myOrder__orderDate__label Total:  
+              .myOrder__orderDate__data &#8377; #{total}
+              -if(booking.status === 'cancelled')
+                span.color--error.order__cancelText Cancelled
+
+        .myOrder__body 
+          each el in booking.product
+            .myOrder__item
+              .myOrder__img
+                img.myOrder__img__src(src = `/images/Product Categories/${el.productId.productCategory.slug}/${el.productId.productSubCategory.slug}/${el.productId.images[0]}`)
+              .myOrder__info
+                .myOrder__info__description=  el.productId.name
+                .myOrder__info--quantityFix= `Quantity : ${el.quantity}`
+          a.myOrder__detailsBtn.btnDesign--secondary(href=`/myAccount/orders/${booking.id}`) Order Details
+
+  -if(bookings.length < 1) 
+    .row
+      .myOrder.para.color--primary You don't have any bookings!!
+            

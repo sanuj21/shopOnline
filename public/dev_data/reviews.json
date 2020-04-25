@@ -1,0 +1,51 @@
+[
+  {
+    "_id": "5c8a34ed14eb5c17645c9101",
+    "title": "Nice",
+    "description": "It good for the price.",
+    "rating": 4,
+    "product": "5c8a34ed14eb5c17645c9121",
+    "user": "5c8a34ed14eb5c17645c9131"
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9102",
+    "title": "Awesome!!",
+    "description": "This is an awesome product,, I can't describe my feelings.",
+    "rating": 5,
+    "product": "5c8a34ed14eb5c17645c9121",
+    "user": "5c8a34ed14eb5c17645c9134"
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9103",
+    "title": "Okay!!",
+    "description": "Go if you are not getting this product offline. Its okay okay product, but can't complain considering the price",
+    "rating": 3.5,
+    "product": "5c8a34ed14eb5c17645c9122",
+    "user": "5c8a34ed14eb5c17645c9131"
+  },
+
+  {
+    "_id": "5c8a34ed14eb5c17645c9104",
+    "title": "Good",
+    "description": "It good for the price.",
+    "rating": 4.5,
+    "product": "5c8a34ed14eb5c17645c9122",
+    "user": "5c8a34ed14eb5c17645c9134"
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9105",
+    "title": "Bestttt!!",
+    "description": "This is an best product,, go for it",
+    "rating": 5,
+    "product": "5c8a34ed14eb5c17645c9123",
+    "user": "5c8a34ed14eb5c17645c9131"
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9106",
+    "title": "Surpriced!!",
+    "description": "Considering the price , I was not expecting much from this. But it really surpriced. One of the best purchases done online",
+    "rating": 5,
+    "product": "5c8a34ed14eb5c17645c9124",
+    "user": "5c8a34ed14eb5c17645c9131"
+  }
+]

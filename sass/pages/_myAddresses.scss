@@ -1,0 +1,86 @@
+.myAddress {
+  display: inline-block;
+  text-align: left;
+  margin: 2rem auto;
+
+  &__heading {
+    margin-bottom: 2rem;
+    color: $color-primary-dark;
+  }
+  &__field {
+    font-size: 1.5rem;
+
+    &__label,
+    &__data {
+      display: inline-block;
+    }
+
+    &__data {
+      margin-left: 0.6rem;
+    }
+
+    &__label {
+      font-weight: 500;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 0.7rem;
+    }
+  }
+
+  &__wrapper {
+    background-color: $color-white;
+    padding: 3rem 0;
+    width: 75%;
+    margin: auto;
+    box-shadow: 0 .5rem .5rem rgba(0, 0, 0, 0.1);
+    // border-radius: 0.3rem;
+    text-align: center;
+    position: relative;
+    
+    &:before {
+      content: '';
+      height: 100%;
+      position: absolute;
+      top:0%;
+      z-index: 1;
+      border-top-left-radius: .3rem;
+      border-bottom-left-radius: .3rem;
+      box-shadow: 0 .5rem .3rem rgba(0, 0, 0, .1);
+      width: 12%;
+      left: -12%;
+      background: linear-gradient(to right, $color-primary, $color-tertiary);
+      opacity: .7;
+    }
+    
+
+    @include respond(tab) {
+      width: 96%;
+
+    }
+
+    @include respond(phone) {
+      width: 80%;
+      padding: 2rem;
+      margin-left: 16%;
+    }
+  }
+
+  &__btnDelete,
+  &__btnEdit {
+    position: absolute;
+  }
+
+  &__btnDelete {
+    font-size: 2.5rem;
+    color: $color-error;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+  }
+
+  &__btnEdit {
+    bottom: 2rem;
+    right: 2rem;
+  }
+}

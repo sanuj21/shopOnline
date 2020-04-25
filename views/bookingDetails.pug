@@ -1,0 +1,87 @@
+extends base
+
+mixin deliveryAddrField(label, uniCl) 
+  .deliveryAddr__field(class=`deliveryAddr__field--${uniCl}`)= label
+
+block content
+  .row 
+    .bookingDetails.bookingDetails__mainHeading.heading.heading--secondary.heading--design1 Preparing Your Order
+  //- Address
+  .row 
+    .bookingDetails
+      .col-1-of-2 
+        .bookingDetails__label Delivery Address
+      .col-1-of-2 
+        .deliveryAddr__wrapper
+          .deliveryAddr
+            +deliveryAddrField(user.address[addressArrIndex].name, 'name')
+            +deliveryAddrField(user.address[addressArrIndex].houseNo, 'houseNo')
+            +deliveryAddrField(`${user.address[addressArrIndex].street},`, 'street')
+            +deliveryAddrField(user.address[addressArrIndex].locality, 'locality')
+            +deliveryAddrField(user.address[addressArrIndex].city, 'city')
+            +deliveryAddrField(`${user.address[addressArrIndex].pincode},`, 'pincode')
+            +deliveryAddrField(user.address[addressArrIndex].district, 'district')
+            +deliveryAddrField(`${user.address[addressArrIndex].state},`, 'state')
+            +deliveryAddrField(`Phone No: ${user.address[addressArrIndex].mobileNo}`, 'mobile')
+            
+
+  .row
+    .bookingDetails
+      .fixed-col-1-of-2
+        .estimateDate__label Estimated Delivery: 
+      .fixed-col-1-of-2
+        .estimateDate__data= `${new Date().getDate() + 2}th - ${new Date().getDate() + 4}th ${new Date().toLocaleString('en-us',{month: 'long'})}` 
+
+    //- This JavaScript code finds the productSubCategory of the product ,,, which is needed in rendering the page
+    -if(!products) 
+      -products = [product];
+    -let totalPrice = 0;
+    -for(let i = 0; i < products.length; i++) 
+      -const product = products[i];
+      -totalPrice = totalPrice + parseInt(product.sellingPrice) * product.quantity;
+      .row
+        .bookingDetails.bookingDetails--bg.cart.subtle_shadow--1(data-productId=`${product.id}`)
+          .fixed-col-1-of-3
+            img.cart__img(src=`/images/Product Categories/${product.productCategory.slug}/${product.productSubCategory.slug}/${product.images[0]}` alt=``)
+              
+          .fixed-col-2-of-3
+            .cart__info
+              .cart__info__brand= product.brand
+              .cart__info__description= product.name
+              .cart__info__price.bookingDetails__itemPrice &#8377; #{product.sellingPrice}
+              .bookingDetails__quantity.cart__info--quantityFix= `Quantity: ${product.quantity}`
+
+  // Payment Options
+  .row 
+    .bookingDetails
+      .col-1-of-2
+        .paymentOption__label Payment Options:
+      .col-1-of-2
+        .paymentOption__data
+          .paymentOption__data__inner
+            .paymentOption__category
+              input(type='radio' name='payment' value='cash' checked) 
+              span Cash on Delivery(COD)
+            .paymentOption__category.paymentOption__category__notice For the time being, we only provide COD!
+              
+
+  // Total Billing
+  .row
+    .bookingDetails
+      .fixed-col-1-of-2
+        .totalBilling__label Total Amount to be paid:
+      .fixed-col-1-of-2
+        .totalBilling__data.bookingDetail__totalPrice= `${totalPrice ? `₹ ${totalPrice} /-` : ''}`
+      
+  .row 
+    .bookingDetails.bookingDetails__btnOrder        
+      a.btn__orderPlace.btnDesign--primary(data-userId=`${user.id}` data-iscart=`${totalPrice ? 'true' : 'false'}`) Place Order
+              
+    
+
+
+
+
+
+
+

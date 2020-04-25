@@ -1,0 +1,23 @@
+extends base
+
+block content
+  .login
+    .heading.heading--secondary.heading--design1.u-margin-bottom-small Log into your account
+    form.form.login__form(data-status=`${status}`)
+      .form__field
+        label.form__field__label Email Address
+        input.form__field__input.email(type='email')
+      .form__field
+        label.form__field__label Password
+        .form__field__password
+          input.form__field__input.password(type='password')
+          ion-icon.form__field__password__toggleBtn.password__toggleBtn(name= 'eye-off')
+      .form__field.clearfix
+        button.form__field__submitBtn Login
+      .form__field
+        a.form__field__linkAssist(href='/forgetPassword') Forget Password ?
+      -if(cur_url)
+        a.form__field__linkAssist(href=`${cur_url}/signup`) Don't have account ? Create One
+      -else
+        a.form__field__linkAssist(href='/signup') Don't have account ? Create One
+

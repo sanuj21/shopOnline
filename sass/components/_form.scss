@@ -1,0 +1,120 @@
+.formDesign,
+.login,
+.register {
+  display: block;
+  max-width: 55rem;
+  margin: 6rem auto;
+  font-weight: 400;
+  background-color: #fff;
+  padding: 5rem 7rem;
+  box-shadow: 0 0.2rem 5rem rgba(0, 0, 0, 0.15);
+
+  @include respond(phone) {
+    margin: none;
+    margin: 0 auto;
+    padding: 6rem 4rem;
+    box-shadow: none;
+  }
+}
+
+.form {
+  font-size: 1.6rem;
+  @include clearfix;
+  &__field {
+      margin-bottom: 2rem;
+    
+    & *:not(ion-icon) {
+      display: block;
+      width: 100%;
+    }
+    &__label {
+      margin-bottom: 0.8rem;
+    }
+
+    &__input {
+      border: 0;
+      background-color: $color-primary-subtle;
+      padding: 1.2rem 2rem;
+      border-radius: 0.3rem;
+      color: $default-text-color;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      outline: none;
+    }
+
+    &__submitBtn {
+      padding: 1rem 5rem;
+      margin-top: 1.5rem;
+      background: linear-gradient(
+        to right,
+        $color-primary,
+        $color-tertiary
+      );
+      float: right;
+      border: 0;
+      font-size: 1.6rem;
+      color: $color-white;
+      border-radius: 0.4rem;
+      cursor: pointer;
+    }
+
+    &__linkAssist {
+      text-decoration: none;
+      display: block;
+      font-size: 1.4rem;
+      text-align: center;
+      color: $color-secondary;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &__password {
+      position: relative;
+      &__toggleBtn {
+        font-size: 2rem;
+        position: absolute;
+        color: $color-primary-dark;
+        top:0%;
+        padding: 1.1rem 1.5rem;
+        right:0%;
+      }
+    }
+    
+    &__row--address {
+      @include clearfix;
+    }
+  }
+}
+
+// For ADDRESS
+.formDesign__big {
+  max-width: 85rem;
+  & .form {
+    font-size: 1.6rem;
+    &__field {
+      float: left;
+      width: 48%;
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+      &:nth-child(even) {
+        margin-left: 4%;
+        @include respond(phone) {
+          margin-left: 0;
+        }
+      }
+      & * {
+        display: block;
+        width: 100%;
+      }
+
+      @include respond(phone) {
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+}
+

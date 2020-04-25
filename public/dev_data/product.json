@@ -1,0 +1,193 @@
+[
+  {
+    "_id": "5c8a34ed14eb5c17645c9121",
+    "name": "Regular Men's Cotton Waist Coat Style Tshirt/T-Shirt ",
+    "description": "This T-Shirt is made up of 60% Cotton, 40% Polyester Single Jersey fabric. It is bio-washed and softener treated which makes the fabric ultra soft in touch and feel. The fabric does not pill and the color will not fade easily.The fabric GSM is 180. ",
+    "brand": "EYEBOGLER",
+    "images": ["tshirt_1--1.png"],
+    "off": "75",
+    "gender": "male",
+    "colorAvailable": ["Blue"],
+    "sizeAvailable": ["M", "L"],
+    "mrp": 999,
+    "specification": {
+      "material": "Cotton",
+      "fit": "regular",
+      "machineWash": "yes",
+      "seller": "GA Guys",
+      "ocassion": "Festive"
+    },
+    "productCategory": "5c8a34ed14eb5c17645c9321",
+    "productSubCategory": "5c8a34ed14eb5c17645c9331"
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9122",
+    "name": "Men's Cotton T-Shirt",
+    "description": " Being stylish is all about standing out in the crowd. Enhance your wardrobe with something which perfectly encapsulates your sense of style.This look is further accentuated by a slim fit finish and a thumb cuff. This t- shirt will leave the impression of your sense of style on everyone’s mind. ",
+    "brand": "Maniac",
+    "images": ["tshirt_2--1.png"],
+    "off": "25",
+    "gender": "male",
+    "colorAvailable": ["brown", "black"],
+    "sizeAvailable": ["M", "L"],
+    "mrp": 599,
+    "specification": {
+      "material": "100% Cotton",
+      "fit": "slim",
+      "machineWash": "no",
+      "seller": "GA Guys",
+      "ocassion": "regular"
+    },
+    "productCategory": "5c8a34ed14eb5c17645c9321",
+    "productSubCategory": "5c8a34ed14eb5c17645c9331"
+  }
+  ,
+  {
+    "_id": "5c8a34ed14eb5c17645c9128",
+    "name": "Hefns Men's Slim Fit Tshirt",
+    "description": "Get a smarter pair of jeans by buying these blue coloured ones for men from Hefns",
+    "brand": "Hefns",
+    "images": ["tshirt_3--1.png"],
+    "off": "11",
+    "gender": "male",
+    "colorAvailable": ["black"],
+    "sizeAvailable": ["S", "M"],
+    "mrp": 329,
+    "specification": {
+      "material": "100% Cotton",
+      "fit": "slim",
+      "machineWash": "yes",
+      "seller": "RealBeings",
+      "ocassion": "regular"
+    },
+    "productCategory": "5c8a34ed14eb5c17645c9321",
+    "productSubCategory": "5c8a34ed14eb5c17645c9331"
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9129",
+    "name": "Colns Men's Regular Fit Tshirt",
+    "description": "Get a smarter pair of jeans by buying these blue coloured ones for men from Colns",
+    "brand": "Colns",
+    "images": ["tshirt_4--1.png"],
+    "off": "18",
+    "gender": "male",
+    "colorAvailable": ["black"],
+    "sizeAvailable": ["S", "M"],
+    "mrp": 589,
+    "specification": {
+      "material": "100% Cotton",
+      "fit": "regular",
+      "machineWash": "yes",
+      "seller": "RealBeings",
+      "ocassion": "regular"
+    },
+    "productCategory": "5c8a34ed14eb5c17645c9321",
+    "productSubCategory": "5c8a34ed14eb5c17645c9331"
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9123",
+    "name": "Men's Plain Slim Fit Formal Shirt",
+    "description": "BRADSTREET blue slim fit business shirts.BRADSTREET Men's Plain Slim Fit Formal Shirt",
+    "brand": "Bradstreet",
+    "images": ["shirt_1--1.png"],
+    "off": "15",
+    "gender": "male",
+    "colorAvailable": ["Red"],
+    "sizeAvailable": ["M", "L"],
+    "mrp": 699,
+    "specification": {
+      "material": "Cotton",
+      "fit": "slim",
+      "machineWash": "yes",
+      "seller": "GA Guys",
+      "ocassion": "regular"
+    },
+    "productCategory": "5c8a34ed14eb5c17645c9321",
+    "productSubCategory": "5c8a34ed14eb5c17645c9332"
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9124",
+    "name": "Men's Solid Slim Fit Casual Shirt",
+    "description": "Dennis Lingo Men's Solid Slim Fit Casual Shirt",
+    "brand": "Dennis Lingo",
+    "images": ["shirt_2--1.png"],
+    "off": "35",
+    "gender": "male",
+    "colorAvailable": ["black"],
+    "sizeAvailable": ["S", "M"],
+    "mrp": 849,
+    "specification": {
+      "material": "Cotton",
+      "fit": "slim",
+      "machineWash": "yes",
+      "seller": "RealBeings",
+      "ocassion": "regular"
+    },
+    "productCategory": "5c8a34ed14eb5c17645c9321",
+    "productSubCategory": "5c8a34ed14eb5c17645c9332"
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9127",
+    "name": "Red Tape Men's Slim Fit Shirt",
+    "description": "Get a smarter pair of jeans by buying these blue coloured ones for men from Red Tape",
+    "brand": "Red Tape",
+    "images": ["shirt_3--1.png"],
+    "off": "22",
+    "gender": "male",
+    "colorAvailable": ["black"],
+    "sizeAvailable": ["S", "M"],
+    "mrp": 1259,
+    "specification": {
+      "material": "100% Cotton",
+      "fit": "slim",
+      "machineWash": "yes",
+      "seller": "RealBeings",
+      "ocassion": "regular"
+    },
+    "productCategory": "5c8a34ed14eb5c17645c9321",
+    "productSubCategory": "5c8a34ed14eb5c17645c9332"
+  }
+  ,
+  {
+    "_id": "5c8a34ed14eb5c17645c9125",
+    "name": "Red Tape Men's Slim Fit Jeans",
+    "description": "Get a smarter pair of jeans by buying these blue coloured ones for men from Red Tape",
+    "brand": "Red Tape",
+    "images": ["jeans_1--1.png"],
+    "off": "31",
+    "gender": "male",
+    "colorAvailable": ["black"],
+    "sizeAvailable": ["S", "M"],
+    "mrp": 1399,
+    "specification": {
+      "material": "100% Cotton",
+      "fit": "slim",
+      "machineWash": "yes",
+      "seller": "RealBeings",
+      "ocassion": "regular"
+    },
+    "productCategory": "5c8a34ed14eb5c17645c9322",
+    "productSubCategory": "5c8a34ed14eb5c17645c9333"
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9126",
+    "name": "Sparx Men's Skinny Fit Jeans",
+    "description": "Get a smarter pair of jeans by buying these blue coloured ones for men from Sparx",
+    "brand": "Sparx",
+    "images": ["jeans_2--1.png"],
+    "off": "71",
+    "gender": "male",
+    "colorAvailable": ["black"],
+    "sizeAvailable": ["S", "M"],
+    "mrp": 3329,
+    "specification": {
+      "material": "100% Cotton",
+      "fit": "slim",
+      "machineWash": "yes",
+      "seller": "RealBeings",
+      "ocassion": "regular"
+    },
+    "productCategory": "5c8a34ed14eb5c17645c9322",
+    "productSubCategory": "5c8a34ed14eb5c17645c9333"
+  }
+]

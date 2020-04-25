@@ -1,0 +1,138 @@
+.footer {
+  background-color: $color-secondary;
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+
+  &__nav {
+    @include clearfix;
+    color: $color-white;
+    opacity: 0.9;
+
+    &--1 {
+      display: inline-block;
+      text-align: left;
+
+      @include respond(phone) {
+        display: block;
+        text-align: center;
+      }
+    }
+    &--2 {
+      display: inline-block;
+      margin-left: 12rem;
+      text-align: left;
+      font-size: 1.4rem;
+
+      @include respond(tab) {
+        margin-left: 5rem;
+      }
+
+      @include respond(phone) {
+        margin-left: 0;
+        margin-top: 4rem;
+      }
+    }
+
+    &__left {
+      float: left;
+
+      @include respond(tab) {
+        float: none;
+        text-align: center;
+      }
+    }
+
+    &__right {
+      float: right;
+      margin-top: 4rem;
+
+      @include respond(tab) {
+        text-align: center;
+        float: none;
+      }
+    }
+
+    &__list {
+      list-style: none;
+      padding: 0;
+      &__item {
+        display: block;
+        &__link {
+          color: #fff;
+          &:link {
+            text-decoration: none;
+            font-size: 1.4rem;
+          }
+        }
+        &:not(:last-child) {
+          margin-bottom: 0.8rem;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    height: 6rem;
+  }
+}
+
+.facebook-icon,
+.twitter-icon,
+.instagram-icon {
+  margin-right: 1rem;
+  font-size: 1.8rem;
+  vertical-align: middle;
+}
+
+.facebook-text,
+.twitter-text,
+.instagram-text {
+  vertical-align: middle;
+}
+
+.subscribe {
+  &__text {
+    font-size: 1.6rem;
+    margin-bottom: 1.4rem;
+  }
+
+  &__email {
+    &__input {
+      padding: 0.8rem 1.5rem;
+      font-size: 1.4rem;
+      border: 1px solid $color-white;
+      border-top-left-radius: $default-border-radius;
+      border-bottom-left-radius: $default-border-radius;
+      background-color: transparent;
+      color: $color-white;
+
+      &::placeholder {
+        color: $color-white;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__btn {
+      padding: 0.8rem 1.5rem;
+      font-size: 1.4rem;
+      border: 1px solid $color-white;
+      margin-left: -1rem;
+      border-top-right-radius: $default-border-radius;
+      border-bottom-right-radius: $default-border-radius;
+    }
+  }
+}
+
+.creator {
+  text-align: center;
+  color: $color-white;
+  opacity: 0.8;
+  font-size: 1.4rem;
+
+  @include respond(tab) {
+    margin-top: 4rem;
+  }
+}

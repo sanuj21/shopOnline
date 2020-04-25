@@ -1,0 +1,180 @@
+.card {
+  text-decoration: none;
+  display: block;
+  border: 1px solid $color-grey-light-4;
+  background-color: $color-white;
+  margin: 1rem auto;
+  color: $default-text-color;
+  text-align: center;
+
+  // Shopping Item Cards
+  &--deal {
+    display: block;
+    padding: 2rem 3rem;
+    margin-bottom: 5rem;
+
+    &__heading {
+      font-size: 1.4rem;
+      margin-top: 2.5rem;
+      text-align: left;
+
+      &__main {
+        display: block;
+        font-weight: 500;
+      }
+      &__sub {
+        margin-top: 0.4rem;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &__price {
+      font-size: 1.7rem;
+      margin-top: 1.5rem;
+      text-align: left;
+
+      &--current {
+        display: inline-block;
+        font-weight: 500;
+      }
+
+      &--mrp {
+        display: inline-block;
+        text-decoration: line-through;
+        margin-left: 0.8rem;
+        font-size: 1.4rem;
+        opacity: 0.8;
+
+        @include respond(phone) {
+          margin-left: 0.4rem;
+        }
+      }
+
+      &__offPercent {
+        display: inline-block;
+        font-size: 1.3rem;
+        margin-left: 1.2rem;
+        color: $color-primary;
+        font-weight: 500;
+
+        @include respond(phone) {
+          margin-left: 0.4rem;
+        }
+      }
+
+      @include respond(phone) {
+        margin-top: .5rem;;
+      }
+    }
+
+    &__img {
+      height: 25rem;
+
+      @include respond(phone) {
+        height: 16rem;
+      }
+    }
+
+    @include respond(tab) {
+      width: 80%;
+      margin-bottom: 2rem;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+      padding: .8rem;
+    }
+  }
+
+  // Category Card
+  &--category {
+    padding: 0rem;
+    margin-top: 4.5rem;
+    border-radius: 0.6rem;
+    box-shadow: 0 0.2rem 1rem 0 rgba(0, 0, 0, 0.15),
+      0 0.2rem 1rem 0 rgba(0, 0, 0, 0.15);
+    width: 28rem;
+
+    &__img {
+      // width: 100%;
+      // max-height: 28rem;
+      position: relative;
+
+      height: 28rem;
+      overflow: hidden;
+
+      @include respond(phone) {
+        max-height: 20rem;
+      }
+
+      &__source {
+        height: 100%;
+        position: absolute;
+        top: -9999px;
+        bottom: -9999px;
+        left: -9999px;
+        right: -9999px;
+        margin: auto;
+      }
+
+      &__caption {
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: 500;
+        text-transform: capitalize;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 16rem;
+        height: 16rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        clip-path: polygon(0% 0%, 0% 100%, 100% 0%);
+        &__content {
+          position: absolute;
+          top: 10%;
+          left: 10%;
+        }
+        @include respond(phone) {
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    &__heading {
+      font-size: 2rem;
+      margin-top: 1rem;
+
+      &__main {
+        padding: 1rem 0;
+        white-space: nowrap;
+      }
+      &__sub {
+        margin: 0 2rem;
+        margin-bottom: 2.5rem;
+        display: inline-block;
+        font-size: 1.5rem;
+        font-weight: 300;
+
+        @include respond(phone) {
+          margin: 0;
+          margin-bottom: 2.5rem;
+        }
+      }
+
+      @include respond(phone) {
+        font-size: 1.6rem;
+      }
+    }
+
+    @include respond(phone) {
+      width: 96%;
+    }
+
+  }
+
+}

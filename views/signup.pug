@@ -1,0 +1,25 @@
+extends base
+
+block content
+  .register
+    .heading.heading--secondary.heading--design1.u-margin-bottom-small Create a new account
+    form.form.register__form(data-status=`${status}`)
+      .form__field
+        label.form__field__label Full Name
+        input.form__field__input.fullName(type='text')
+      .form__field
+        label.form__field__label Email Address
+        input.form__field__input.email(type='email')
+      .form__field
+        label.form__field__label Password
+        .form__field__password
+          input.form__field__input.newPassword(type='password')
+          ion-icon.form__field__password__toggleBtn.password__toggleBtn(name= 'eye-off')
+      .form__field
+        label.form__field__label Confirm Password
+        .form__field__password
+          input.form__field__input.confirmPassword(type='password')
+          ion-icon.form__field__password__toggleBtn.password__toggleBtn(name= 'eye-off')
+      .form__field.clearfix
+        button.form__field__submitBtn Register
+      a.form__field__linkAssist(href='/login') Already Have account ? Login

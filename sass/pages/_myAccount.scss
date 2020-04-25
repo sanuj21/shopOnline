@@ -1,0 +1,115 @@
+.account {
+  &__dashboard {
+    font-size: 1.4rem;
+    width: 80%;
+    margin: auto;
+    @include clearfix;
+    &__item {
+      // border: 1.2px solid $color-grey-light-4;
+      border-radius: 0.3rem;
+      display: block;
+      text-decoration: none;
+      padding: 3rem 1rem;
+      margin-bottom: 2rem;
+      background-color: $color-white;
+      box-shadow: 0 0.2rem .4rem rgba(0, 0, 0, 0.1);
+      position: relative;
+      @include clearfix;
+
+      
+
+
+      &__icon, &__iconArrow {
+        color: $color-tertiary;
+        display: inline-block;
+        // color: $color-primary-dark;
+        width: 14%;
+
+        
+      }
+
+      &__icon {
+        vertical-align:top;
+        font-size: 4rem;
+      }
+
+      &__iconArrow {
+        transform: scale(1.5, 1.2);
+        overflow: hidden;
+        vertical-align: top;
+        font-size: 4rem;
+        width: 12%;
+        margin-left: 2%;
+      }
+
+      &__info {
+        display: inline-block;
+        vertical-align: middle;
+        width: 72%;
+
+        @include respond(phone) {
+          width: 68%;
+          margin-left: 4%;
+        }
+
+        &__title {
+          font-size: 1.8rem;
+          font-weight: 500;
+        }
+
+        &__para {
+          margin: 0;
+          margin-top: 0.5rem;
+          opacity: .8;
+        }
+
+        // For Add a address Option
+        
+      }
+
+      // &:before {
+      //   content: '';
+      //   display: inline-block;
+      //   position: absolute;
+      //   top: 0rem;
+      //   left: 0rem;
+      //   width: 4rem ;
+      //   height: 4rem;
+      //   background-color: $color-tertiary;
+      //   clip-path: ellipse(50% 60% at 0% 0%);
+      // }
+    }
+
+    @include respond(tab) {
+      width: 100%;
+    }
+    
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+}
+
+.addAddress {
+
+  &__item {
+    padding: 2rem 1rem;
+    @include respond(phone) {
+      width: 90%;
+      margin-left: 6%;
+    }
+  }
+  &__item__marginTop {
+    margin-top: 4rem;
+  }
+
+  &__icon {
+    vertical-align: middle;
+  }
+  &__title {
+    width: 72%;
+    display: inline-block;
+    font-size: 1.8rem;
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,380 @@
+.navigation {
+  font-weight: 400;
+  text-transform: capitalize;
+  &__primary {
+    background-color: $color-secondary;
+    &__list {
+      margin: 0;
+      padding: 1rem 0;
+    }
+
+    &__item {
+      display: inline-block;
+      &:not(:last-child) {
+        margin-right: 10rem;
+
+        @include respond(mini-lap) {
+          margin-right: 5rem;
+        }
+      }
+
+      &--menuBtn {
+        margin-right: 1.5rem !important;
+        cursor: pointer;
+        display: none;
+        vertical-align: middle;
+        &_line {
+          display: block;
+          border: 1.2px solid $color-white;
+          width: 2.7rem;
+          border-radius: 2rem;
+          &:not(:last-child) {
+            margin-bottom: 0.7rem;
+          }
+        }
+
+        @include respond(phone) {
+          display: inline-block;
+        }
+      }
+      &--search {
+        width: 35%;
+        @include respond(phone) {
+          width: 100%;
+        }
+      }
+
+      &:hover .navigation__dropdown__list {
+        display: block;
+      }
+
+      &--forMobile {
+        display: none;
+
+        @include respond(phone) {
+          display: inline-block;
+          float: right;
+          margin-right: 0rem !important;
+        }
+      }
+    }
+
+    &__link {
+      text-decoration: none;
+      color: $color-white;
+      font-size: 1.5rem;
+      cursor: pointer;
+
+      &__text {
+        vertical-align: middle;
+        // text-transform: uppercase;
+      }
+    }
+
+    &__text__links {
+      float: right;
+
+      & .navigation__primary__item:not(:last-child) {  
+        transform: translateY(-.8rem);
+      }
+
+      @include respond(phone) {
+        display: none;
+      }
+    }
+  }
+
+  &__search {
+    width: 100%;
+    position: relative;
+
+    &__box {
+      padding: 1rem 1.5rem;
+      border-radius: $default-border-radius;
+      border: none;
+      width: 100%;
+      font-size: 1.4rem;
+
+      @include respond(phone) {
+        padding: 1.2rem 1.5rem;
+      }
+    }
+
+    &__icon {
+      position: absolute;
+      font-size: 2.3rem;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      line-height: 1;
+      padding: 1rem;
+      display: inline-block;
+      color: $color-secondary;
+    }
+
+    @include respond(phone) {
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__logo {
+    height: 3rem;
+    vertical-align: middle;
+  }
+
+  &__secondary {
+    background-color: $color-white;
+    font-size: 1.4rem;
+    &__link {
+      &:link {
+        text-decoration: none;
+        color: $default-text-color;
+        font-size: 1.4rem;
+        display: inline-block;
+      }
+
+      &:visited {
+        text-decoration: none;
+        color: $default-text-color;
+        font-size: 1.4rem;
+      }
+    }
+
+    &__list {
+      margin: 0;
+      text-align: center;
+    }
+
+    &__item {
+      display: inline-block;
+      padding: 1rem 0;
+
+      &:not(:last-child) {
+        margin-right: 15rem;
+
+        @include respond(mini-lap) {
+          margin-right: 12rem;
+        }
+      }
+      @include respond(mini-lap) {
+        font-weight: 400;
+      }
+
+      &:hover .navigation__dropdown__list {
+        display: block;
+      }
+
+      &:hover .downArrow-icon {
+        transform: rotate(180deg) translateY(0.2rem);
+      }
+    }
+
+    @include respond(tab) {
+      display: none;
+    }
+  }
+
+  &__dropdown {
+    &__list {
+      display: none;
+      list-style: none;
+      position: absolute;
+      background-color: #fff;
+      padding: 0;
+      width: 24rem;
+      margin-top: 1rem;
+      text-align: left;
+      animation-name: moveFromTopNav;
+      animation-duration: 0.2s;
+      animation-timing-function: ease;
+      z-index: 100;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+
+    
+    }
+
+
+    &__item {
+      display: block;
+      padding: 1rem 2rem;
+      font-size: 1.3rem;
+      color: $default-text-color;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #ccc;
+      }
+
+      &:link {
+        width: 100%;
+        text-decoration: none;
+      }
+
+      &:visited {
+        width: 100%;
+        text-decoration: none;
+      }
+
+      &:hover {
+        background-color: $color-secondary;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.person-icon,
+.downArrow-icon{
+  vertical-align: middle;
+  font-size: 2.2rem;
+}
+
+.downArrow-icon {
+  font-size: 1.7rem;
+  transition: 0.2s all ease;
+}
+
+.cart-icon {
+  &--mobile {
+    font-size: 3.5rem;
+    vertical-align: middle;
+  }
+}
+
+.person-icon {
+  &--mobile {
+    font-size: 3.5rem;
+    vertical-align: middle;
+  }
+}
+
+.navigation__primary .navigation__dropdown__list {
+  margin-top: 1rem;
+  width: 14rem;
+}
+
+@keyframes moveFromTopNav {
+  from {
+    transform: translateY(5rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+// ## Mobile Navigation Modal
+.modalNav,
+.modalAlert {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  margin-left: -100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2349;
+  transition: 0.7s;
+
+  &__content {
+    display: block;
+    width: 80%;
+    position: relative;
+    height: 100vh;
+    background-color: $color-white;
+  }
+
+  &__header {
+    background-color: $color-secondary;
+    &__title {
+      text-decoration: none;
+      display: inline-block;
+      color: $color-white;
+      font-size: 1.8rem;
+      padding: 1rem 3rem;
+
+      &__text {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &__body {
+    &__list {
+      &__item {
+        display: block;
+        color: $default-text-color;
+        font-size: 1.6rem;
+        text-decoration: none;
+        padding: 2rem 4rem;
+
+        &:nth-child(even) {
+          border-bottom: 0.7rem solid $color-grey-light-3;
+        }
+      }
+    }
+  }
+
+  &__close {
+    display: inline-block;
+    color: $color-white;
+    font-size: 3rem;
+    padding: 1.1rem 1.5rem;
+    position: absolute;
+    top: 0;
+    right:0;
+    cursor: pointer;
+  }
+
+  &__show {
+    margin-left: 0%;
+  }
+
+  
+}
+
+.displayBlock {
+  display: block;
+}
+
+.modalAlert {
+  margin-left: 0;
+
+  background-color: rgba(0, 0, 0, .6);
+
+  &__content {
+    display: inline-block;
+    width: initial;
+    height: initial;
+    padding: 4rem 6rem;
+    border-radius: .3rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+    opacity: 0;
+    animation: .4s ease-in fadeAlert forwards;
+    text-align: center;
+
+    @include respond(phone) {
+      padding: 3rem 2rem;
+      width: 90%;
+    }
+  }
+  &__btn--ok {
+    border: 1px solid $default-text-color;
+    padding: .6rem 3rem;
+    border-radius: .2rem;
+    margin-top: 3rem;
+
+    @include respond(phone) {
+      padding: .5rem 3rem;
+      margin-top: 2rem;
+    }
+  }
+}
+
+@keyframes fadeAlert {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

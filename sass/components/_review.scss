@@ -1,0 +1,61 @@
+.product__review {
+  margin-left: 5%;
+  &__summary {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    font-weight: 500;
+  }
+
+  &__temp {
+    width: 90%;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    padding: 2rem;
+    border: 1px solid $color-grey-light-4;
+    border-radius: 0.4rem;
+    background-color: $color-white;
+    box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.1),
+      0 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
+
+      @include respond(phone) {
+        width: 94%;
+      }
+  }
+
+  &__user {
+    margin-bottom: 2rem;
+    &__icon {
+      font-size: 4rem;
+      vertical-align: middle;
+    }
+    &__name {
+      vertical-align: middle;
+      display: inline-block;
+      margin-left: .5rem;
+    }
+  }
+
+  &__date {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.4rem;
+    font-weight: 500;
+  }
+
+  &__rating {
+    &__star {
+      color: $color-primary-dark;
+      font-size: 1.7rem;
+      vertical-align: middle;
+    }
+  }
+
+  &__title {
+    vertical-align: middle;
+    font-weight: 500;
+    margin-left: 1rem;
+  }
+
+  margin-bottom: 5rem;
+}

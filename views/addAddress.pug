@@ -1,0 +1,28 @@
+extends base 
+
+mixin formField(label, inputType, uniClass)
+  .form__field
+    label.form__field__label= label
+    input.form__field__input(type=`${inputType}` class=`${uniClass}`)
+
+block content 
+  .formDesign.formDesign__big
+    .heading.heading--secondary.heading--design1.u-margin-bottom-small Add a New Address
+    form.form.address__form.addAddress__form.clearfix(data-status=`${status}`)
+      .form__field__row--address
+        +formField('Full Name', 'text', 'fullName')
+        +formField('Mobile', 'text', 'mobile')
+      .form__field__row--address  
+        +formField('House No:', 'text', 'houseNo')
+        +formField('Street', 'text', 'street')
+      .form__field__row--address
+        +formField('Locality', 'text', 'locality')
+        +formField('City', 'text', 'city')
+      .form__field__row--address  
+        +formField('Pincode', 'text', 'pincode')
+        +formField('District', 'text', 'district')
+      .form__field__row--address  
+        +formField('State', 'text', 'state')
+        +formField('Country', 'text', 'country')
+      .form__field__row--address
+          button(type="submit").form__field__submitBtn Save

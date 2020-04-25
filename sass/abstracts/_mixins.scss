@@ -1,0 +1,41 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    clear: both;
+  }
+}
+
+// MEDIA QUERIES MANAGER
+
+@mixin respond($breakpoint) {
+  // For 1366px
+  @if $breakpoint == mini-lap {
+    @media (max-width: 1366px) {
+      @content;
+    }
+  }
+
+  // For 1000px
+  @if $breakpoint == tab {
+    @media (max-width: 1000px) {
+      @content;
+    }
+  }
+
+  // For 600px
+  @if $breakpoint == phone {
+    @media (max-width: 700px) {
+      @content;
+    }
+  }
+
+  // For 1800px
+  @if $breakpoint == big-desktop {
+    @media (max-width: 1800px) {
+      @content;
+    }
+  }
+}

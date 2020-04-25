@@ -1,0 +1,31 @@
+extends base
+
+mixin dashboardItem(icon, title, para, route) 
+  .col-1-of-2
+    a.account__dashboard__item(href= `/myAccount/${route}`)
+      ion-icon.account__dashboard__item__icon(name=`${icon}-outline`)
+      .account__dashboard__item__info
+        .account__dashboard__item__info__title= title
+        p.account__dashboard__item__info__para= para
+      span.account__dashboard__item__iconArrow &rarr;
+
+block content
+  .account.u-margin-bottom-medium
+    .row
+      .account__dashboard
+        .heading.heading--secondary.heading--colorTertiary.u-margin-top-medium.u-margin-bottom-medium My Account
+    .row
+      .account__dashboard
+        +dashboardItem('clipboard', 'My Orders', 'Here, All information about your orders', 'orders')
+        +dashboardItem('settings', 'Change Password', 'Here, you can change your account password', 'changePassword')
+        +dashboardItem('home', 'My Addresses', 'Here, you can view and update your address', 'addresses')
+        +dashboardItem('reader', 'Edit My Profile', 'Here, You can view and update informations about yourself!', 'editProfile')
+        +dashboardItem('add-circle', 'Add a New address', 'Here, You can add a new address to your account', 'addAddress')
+        // Logout Button
+        .col-1-of-2
+          a.account__dashboard__item.btn--logout
+            ion-icon.account__dashboard__item__icon.addAddress__icon(name='log-out-outline')
+            .account__dashboard__item__info
+              .account__dashboard__item__info__title Logout
+              p.account__dashboard__item__info__para Logout from your account
+            span.account__dashboard__item__iconArrow &rarr;

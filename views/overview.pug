@@ -1,0 +1,62 @@
+extends base
+
+block content
+  header.header
+    img.header__image(src=`/images/home_page/home_top_header.jpg`)
+  section.section-category
+    .heading-wrapper 
+      .row
+        .heading.heading--tertiary.heading--category Shop By Category
+
+    .row 
+      each el in productSubCategory 
+        .col-1-of-4
+          a.card.card--category(href=`/products/${el.slug}`)
+            .card--category__img
+              img.card--category__img__source(src=`/images/Product Categories/${el.image}` alt=`${el.name}`)
+              .card--category__img__caption
+                .card--category__img__caption__content= el.name 
+            .card--category__heading
+              .card--category__heading__main Starting from ₹299
+              .card--category__heading__sub upto 14% off
+
+    .row
+      .u-center
+        a.section-category__more.btn_moreCat  More Categories
+          span.btn--arrowIcon  &rarr;
+    
+    .row
+      .u-center
+        .para--small.color--error Currently, We have only this categories
+
+  section.section-drone-ad
+    img.drone__image(src=`/images/home_page/home_drone.jpg`)
+
+
+  //- Section Pay Online
+  section.section-pay_online
+    .row
+      .col-1-of-2
+        .pay_online_content
+          .heading.heading--primary Pay Online and get flat 30% cashback
+          .pay_online_terms [ Maximum cashback upto &#8377;499 ]
+          p.para.pay_online--para 
+            |  Lorem Ipsum is simply dummy text of the printing and typesetting
+            |  industry. Lorem Ipsum has been the industry's standard dummy text
+            |  ever since the 1500s, when an unknown printer took a galley of
+            |  type and scrambled it to make a type specimen book. It has
+            |  survived not only five centuries, but also the leap into
+            |  electronic typesetting, remaining essentially unchanged. It was
+            |  popularised in the 1960s with the release of Letraset sheets
+            |  containing Lorem Ipsum passages, and more recently with desktop
+            |  publishing software like Aldus PageMaker including versions of
+            |  Lorem Ipsum.
+      .col-1-of-2
+        img.pay_online_illustration(src='/images/home_page/pay_online_illustration.png')
+
+
+
+      
+          
+
+

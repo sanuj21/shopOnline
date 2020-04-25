@@ -1,0 +1,251 @@
+.product_img_part {
+  margin-top: 2rem;
+
+  &__img {
+    background-color: $color-white;
+    border: 1px solid $color-grey-light-4;
+    width: 90%;
+
+    &__link {
+      display: block;
+      width: 35rem;
+      margin: 2rem auto;
+
+      @include respond(tab) {
+        width: 30rem;
+      }
+    }
+
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+
+  &__btn {
+    width: 42%;
+    text-decoration: none;
+    padding: 1.2rem 4rem;
+    text-align: center;
+    color: $default-text-color;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    display: inline-block;
+    text-transform: uppercase;
+    background: linear-gradient(
+      to right bottom,
+      $color-primary,
+      $color-primary-dark
+    );
+    color: $color-white;
+    border-radius: 0.4rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+
+    &:link {
+    }
+
+    &--buy {
+    }
+
+    &--addToCart {
+      margin-left: 5%;
+
+      @include respond(tab) {
+        margin-left: 0;
+      }
+    }
+
+    @include respond(tab) {
+      width: 90%;
+      margin-bottom: 0;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+}
+
+.product__info {
+  margin-top: 3rem;
+
+  &__heading {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+
+    &--top {
+      color: $color-primary;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+  }
+
+  &__rating {
+    font-size: 1.4rem;
+    font-weight: 500;
+
+    color: $color-primary;
+
+    &__avg {
+      vertical-align: middle;
+    }
+
+    &__star {
+      vertical-align: middle;
+      margin-left: 0.4rem;
+    }
+
+    &__quantity {
+      margin-left: 1rem;
+    }
+  }
+
+  &__price {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    &--current {
+      font-size: 3rem;
+      display: inline-block;
+    }
+
+    &--mrp {
+      font-size: 2rem;
+      display: inline-block;
+      margin-left: 1rem;
+      text-decoration: line-through;
+    }
+
+    &--offPercent {
+      font-size: 1.6rem;
+      margin-left: 1rem;
+      display: inline-block;
+      color: $color-primary;
+    }
+  }
+
+  &__basic {
+    font-size: 1.5rem;
+
+    & table {
+      width: 80%;
+      
+
+      & tr {
+        & td {
+          padding-bottom: 2rem;
+          width: 50%;
+          &:last-child {
+            opacity: 0.85;
+          }
+        }
+      }
+
+      @include respond(mini-lap) {
+        width: 90%;
+      }
+    }
+
+    &__pincode {
+      position: relative;
+      &__locationIcon {
+        position: absolute;
+        top: 0.5rem;
+        color: $color-primary;
+        font-size: 2rem;
+        left: 0;
+      }
+
+      &__input {
+        border: none;
+        background-color: transparent;
+        width: 100%;
+        border-bottom: 1px solid $color-primary;
+        padding: 0.5rem 3rem;
+        letter-spacing: 0.1rem;
+        outline: none;
+      }
+
+      &__checkBtn {
+        text-decoration: none;
+        color: $color-primary;
+        position: absolute;
+        top: 0.5rem;
+        right: 0;
+        margin-left: -5rem;
+      }
+    }
+  }
+
+  &__details {
+    font-size: 1.5rem;
+    margin-top: 4rem;
+    text-transform: capitalize;
+
+    & table {
+      width: 80%;
+      background-color: $color-white;
+      border: 1px solid $color-grey-light-4;
+      & tr:last-child {
+        td {
+          padding-bottom: 2.5rem;
+        }
+      }
+
+      & tr {
+        & td {
+          padding-bottom: 1rem;
+          font-size: 1.4rem;
+          width: 50%;
+          padding-left: 5rem;
+
+          &:last-child {
+            opacity: 0.85;
+          }
+        }
+      }
+
+      @include respond(mini-lap) {
+        width: 90%;
+      }
+
+      @include respond(phone) {
+        margin-left: 5%;
+      }
+    }
+
+    &__heading {
+      background-color: $color-white;
+      padding: 1rem 2rem !important;
+      font-size: 1.8rem !important;
+
+      &--secondary td {
+        padding: 1.5rem 2rem !important;
+        border-top: 1px solid $color-grey-light-3;
+        font-size: 1.6rem !important;
+      }
+    }
+  }
+}
+
+.bazaar {
+  color: $color-primary;
+}
+
+.product__review {
+  margin-top: 4rem;
+  &__desc {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+}
+
+.product__quantity__input {
+  display: inline-block;
+  padding: .5rem .8rem;
+  width: 6rem;
+  border: 1px solid $color-grey-light-2;
+  border-radius: .2rem;
+}

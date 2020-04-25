@@ -1,0 +1,17 @@
+extends baseEmail
+
+block content  
+  p= `Hi ${firstName},`
+    p As per your request, One of your orders has been cancelled!!
+    p Here you can have a look at your orders!!
+    table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+      tbody
+        tr
+          td(align='left')
+            table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+              tbody
+                tr
+                  td
+                    a(href=`${url}`, target='_blank') Go to My Orders
+    p If you need any help!! Please don't hesisate to contact us!!
+    p - Anuj Sharma, CEO

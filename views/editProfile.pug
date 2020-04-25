@@ -1,0 +1,17 @@
+extends base
+
+mixin formField(label, inputType, val, uniClass)
+  .form__field
+    label.form__field__label= label
+    input.form__field__input(type=`${inputType}` class=`${uniClass}` value = `${val}`)
+
+block content 
+  .formDesign
+    .heading.heading--secondary.heading--design1.u-margin-bottom-small Update Your Profile
+    form.form.updateProfile__form
+      +formField('Name', 'text', user.name, 'fullName')
+      +formField('Email', 'email', user.email, 'email')
+      .form__field
+        button.form__field__submitBtn Save
+           
+        

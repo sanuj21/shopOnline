@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "5c8a34ed14eb5c17645c9331",
+    "name": "tshirt",
+    "description": "",
+    "productCategory": "5c8a34ed14eb5c17645c9321",
+    "image": "product_subCategory_tshirt.png"
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9332",
+    "name": "shirt",
+    "description": "",
+    "productCategory": "5c8a34ed14eb5c17645c9321",
+    "image": "product_subCategory_shirt.png"
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9333",
+    "name": "jeans",
+    "description": "",
+    "productCategory": "5c8a34ed14eb5c17645c9322",
+    "image": "product_subCategory_jeans.png"
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9334",
+    "name": "trouser",
+    "description": "",
+    "productCategory": "5c8a34ed14eb5c17645c9322",
+    "image": "product_subCategory_trouser.png"
+  }
+]

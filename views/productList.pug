@@ -1,0 +1,39 @@
+extends base
+
+block content 
+  -if(products.length > 0) 
+    .row
+      -if(!searchQuery)
+        .heading.heading--tertiary.u-margin-top-medium= `Showing result of ${products[0].productSubCategory.name.toString()}s :`
+      -else
+        .heading.heading--tertiary.u-margin-top-medium= `Showing result for your search "${searchQuery}" :`
+
+    .row
+      each el in products
+        .col-1-of-4
+          a.card.card--deal(href=`/products/${el.productSubCategory.slug}/${el.slug}`)
+            img.card--deal__img(src=`/images/Product Categories/${el.productCategory.name}/${el.productSubCategory.name}/${el.images[0]}`)
+            .card--deal__heading
+              .card--deal__heading__main= el.brand
+              .card--deal__heading__sub= el.name
+            .card--deal__price
+              .card--deal__price--current &#8377;#{el.sellingPrice}
+              .card--deal__price--mrp &#8377;#{el.mrp}
+              .card--deal__price__offPercent  #{el.off}% off
+
+  -else if(!searchQuery)
+    .row 
+      .para.color--error.u-margin-top-medium As for now, we don't have items in this category!!
+    .row 
+      a.btnDesign--primary(href=`/`) Go to Home Page
+        span.btn--arrowIcon &rarr;
+
+  -else 
+    .row 
+      .para.color--error.u-margin-top-medium= `No result found for "${searchQuery}"`
+      .para.color--error.u-margin-top-medium Sorry!! We don't have items you are looking for!!
+    .row 
+      a.btnDesign--primary(href=`/`) Go to Home Page
+        span.btn--arrowIcon &rarr;
+
+  

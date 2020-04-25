@@ -1,0 +1,97 @@
+
+mixin navSecondaryItem(list, productCat)
+  -if(list === true)
+    .navigation__secondary__item
+      a.navigation__secondary__link
+        span.navigation__secondary__link__text #{productCat.name}
+        ion-icon.downArrow-icon(name = `chevron-down-outline`)
+      .navigation__dropdown__list
+        -for(let i = 0; i < productSubCategory.length; i++)
+          -if(productCat._id.toString() == productSubCategory[i].productCategory.toString())
+            a.navigation__dropdown__item(href=`/products/${productSubCategory[i].slug}`) #{productSubCategory[i].name}
+
+  -if(list === false)
+    .navigation__secondary__item
+      a.navigation__secondary__link(href = `/cart`)
+        span.navigation__secondary__link__text #{productCat}  
+        
+// Mobile Nav mixin
+mixin mobileNavItem(name, route) 
+  a.modalNav__body__list__item(href=`/${route}`)= name
+
+mixin headerUserInfo(label, route)
+  .navigation__primary__item
+    a.navigation__primary__link(href = `/${route}`)
+      //- ion-icon.person-icon(name = `person-circle-outline`)
+      span.navigation__primary__link__text= `${label}`
+        
+
+.navigation(data-user=`${user ? 'true' : 'false'}`)
+  nav.navigation__primary
+    .row
+      .navigation__primary__list.clearfix
+        .navigation__primary__item.navigation__primary__item--menuBtn(data-target='#modal__navTop')
+          span.navigation__primary__item--menuBtn_line
+          span.navigation__primary__item--menuBtn_line
+          span.navigation__primary__item--menuBtn_line
+        .navigation__primary__item
+          a.navigation__primary__link(href = `/`)
+            img.navigation__logo(src = `/logo/logo_light.svg`)
+
+        // For Mobile Cart
+        .navigation__primary__item.navigation__primary__item--forMobile
+          a.navigation__primary__link.cartBtnHeader(href= `/myAccount/cart/${user ? user.id : ''}`)
+            img.cartBtnHeader__img(src = '/images/cart.svg')
+            span.navigation__primary__link__text.cartBtnHeader__text= `${user ? user.cart.length : cartItems}`
+
+        .navigation__primary__item.navigation__primary__item--search
+          .navigation__search
+            input.navigation__search__box.input__search(type=`text` placeholder=`Search for products...` value = `${searchQuery ? searchQuery : ''}`)
+            a.btn__search.navigation__search__icon
+              ion-icon(name = `search`)
+
+        // The Last two buttons of top Nav
+        .navigation__primary__text__links.clearfix
+          -if(!user)  
+            +headerUserInfo('Log in','login')
+            +headerUserInfo('Sign up','signup')
+          -if(user)
+            +headerUserInfo(`Hello ${user.name.split(' ')[0]}!`, 'myAccount')
+            .navigation__primary__item
+              a.navigation__primary__link(href='/myAccount')
+                //- ion-icon.person-icon(name = `person-circle-outline`)
+                span.navigation__primary__link__text My Account
+                        
+          .navigation__primary__item
+            a.navigation__primary__link.cartBtnHeader(href= `/myAccount/cart/${user ? user.id : ''}`)
+              img.cartBtnHeader__img(src = '/images/cart.svg')
+              span.navigation__primary__link__text.cartBtnHeader__text= `${user ? user.cart.length : cartItems}`
+
+    //- Secondary Nav
+  nav.navigation__secondary
+    .row    
+      .navigation__secondary__list.clearfix
+        each el in productCategory
+          +navSecondaryItem(true, el)
+        +navSecondaryItem(false, 'Offer Zone')
+        +navSecondaryItem(false, 'Contact Us')
+
+.modalNav#modal__navTop
+  .modalNav__content.modalNav__content
+    .modalNav__header
+      -if(!user)  
+        a.modalNav__header__title(href='/login')
+          ion-icon.person-icon--mobile(name='person-circle-outline')
+          span.modalNav__header__title__text Hello! Sign In
+      -if(user)  
+        a.modalNav__header__title(href='/myAccount')
+          ion-icon.person-icon--mobile(name='person-circle-outline')
+          span.modalNav__header__title__text= user.name
+      ion-icon.modalNav__close(name='close-outline')
+    .modalNav__body
+      .modalNav__body__list
+        +mobileNavItem('Home', '')
+        +mobileNavItem('Orders', 'myAccount/orders')
+        +mobileNavItem('Account', 'myAccount')
+        +mobileNavItem(`Today's Deal`, 'offers')
+        +mobileNavItem('Contact us', 'contact')

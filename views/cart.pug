@@ -1,0 +1,53 @@
+extends base
+
+block content
+  .row
+    .bookingDetails.bookingDetails__mainHeading.heading.heading--tertiary= `My Cart (${products.length})` 
+
+
+  //-This JavaScript code finds the productSubCategory of the product ,,, which is needed in rendering the page
+  -let totalPrice = 0;
+  -for(let i = 0; i < products.length; i++) 
+    -const product = products[i];
+    -totalPrice = totalPrice + parseInt(product.sellingPrice) * product.quantity;
+    .row
+      .bookingDetails.bookingDetails--bg.cart.subtle_shadow--1
+        .fixed-col-1-of-3
+          a(href=`/products/${product.productSubCategory.slug}/${product.slug}`)
+            img.cart__img(src=`/images/Product Categories/${product.productCategory.slug}/${product.productSubCategory.slug}/${product.images[0]}` alt=``)
+            
+        .fixed-col-2-of-3
+          .cart__info
+            .cart__info__brand= product.brand
+            .cart__info__description= product.name
+            .cart__info__price &#8377; #{product.sellingPrice}
+            .cart__info--quantity
+              ion-icon.cart__info--quantity__minus(name='remove-outline')
+              span.cart__info--quantity__data= `${product.quantity}`
+              ion-icon.cart__info--quantity__plus(name='add-outline')
+            ion-icon.cart__removeBtn(name='trash' data-productid = `${product.id}`)
+           
+  -if(products.length > 0)
+    .row
+      .bookingDetails
+        .fixed-col-1-of-2
+          .totalBilling__label Total Amount :
+        .fixed-col-1-of-2
+          .totalBilling__data.totalBilling__data--cart &#8377; #{totalPrice} /-
+
+  
+    .row 
+      .bookingDetails
+        a.btnDesign--primary(href=`/products/bookProducts/cart/chooseAddress${user ? '' : '/guest'}`) Proceed to Checkout
+          span.btn--arrowIcon &rarr;
+
+  -else 
+    .row 
+      .bookingDetails
+        a.btnDesign--primary(href=`/`) Go to Home Page
+          span.btn--arrowIcon &rarr;
+
+
+
+
+

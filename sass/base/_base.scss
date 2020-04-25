@@ -1,0 +1,193 @@
+/* ----- Colors ----- */
+/*-------
+    Theme Color : #00ADB5
+    Theme Color(Dark) : #007980
+-------*/
+
+html {
+  font-size: 10px;
+  font-family: 'Montserrat';
+  font-weight: 400;
+  overflow-x: hidden;
+
+  @include respond(mini-lap) {
+    font-size: 9px;
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f5f5;
+  margin: 0px;
+  padding: 0px;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  overflow-x: hidden;
+  color: $default-text-color;
+}
+
+input,
+select,
+button {
+  color: $default-text-color;
+  font-family: 'Montserrat';
+  letter-spacing: 1px;
+  outline: none;
+
+  &::placeholder {
+    opacity: 1;
+    font-family: 'Montserrat';
+    letter-spacing: 1px;
+  }
+}
+
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.section-deals {
+  margin-top: -2px;
+  padding-bottom: 6rem;
+}
+
+.section-category {
+  padding-bottom: 6rem;
+}
+
+.section-pay_online {
+  padding: 5rem 0;
+  background-color: #f5f5f5;
+}
+
+.pay_online_img {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+hr {
+  border-top: 1px solid $color-grey-light-3;
+}
+
+.customAlert {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1.6rem 6rem;
+  color: $color-white;
+  z-index: 100;
+  font-size: 2rem;
+  animation: slideAlertFromTop 0.5s forwards;
+  background-color: $color-success;
+  border-bottom-left-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+
+  @include respond(phone) {
+    font-size: 1.4rem;
+    padding: 1rem 3rem;
+  }
+}
+
+.customAlert--error {
+  background-color: $color-error;
+}
+
+.customAlert--success {
+  background: linear-gradient(
+    to right,
+    $color-tertiary,
+    $color-primary 80%
+  );
+}
+
+@keyframes slideAlertFromTop {
+  from {
+    top: -10rem;
+  }
+  to {
+    top: 0;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $default-text-color;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.subtle_shadow--1 {
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+// For Error Page
+
+.error {
+  margin: 5rem 0;
+  text-align: center;
+  &__info {
+    color: $color-error;
+    font-size: 2rem;
+  }
+
+  &__img {
+    height: 20rem;
+    margin-top: 3rem;
+
+    @include respond(phone) {
+      height: 16rem;
+    }
+  }
+}
+
+.cartBtnHeader {
+  position: relative;
+
+  &__img {
+    height: 3rem;
+    margin-top: 0.4rem;
+  }
+
+  &__text {
+    position: absolute;
+    top: 5%;
+    left: 45%;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $color-tertiary;
+    // background-color: $color-primary-dark;
+  }
+}
+
+
+
+.small__para--success,
+.small__para--error {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+
+.small__para--success {
+  color: $color-tertiary;
+}
+.small__para--error {
+  color: $color-error;
+}
+
+.preload--transitions *{
+  transition: none !important;
+}
+

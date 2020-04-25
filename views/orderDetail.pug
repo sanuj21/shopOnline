@@ -1,0 +1,77 @@
+extends base 
+
+mixin deliveryAddrField(label, uniCl) 
+  .deliveryAddr__field(class=`deliveryAddr__field--${uniCl}`)= label
+
+block content
+  .row
+    .bookingDetails.bookingDetails__mainHeading.heading.heading--secondary.heading--design1 Order Details
+      -if(booking.status === 'cancelled')
+        span.para.color--error= ` (Cancelled)`
+  .row
+    .bookingDetails
+      .col-1-of-2 
+        .bookingDetails__label Delivery Address
+      .col-1-of-2
+        .deliveryAddr__wrapper
+          .deliveryAddr
+            +deliveryAddrField(user.address[0].name, 'name')
+            +deliveryAddrField(user.address[0].houseNo, 'houseNo')
+            +deliveryAddrField(`${user.address[0].street},`, 'street')
+            +deliveryAddrField(user.address[0].locality, 'locality')
+            +deliveryAddrField(user.address[0].city, 'city')
+            +deliveryAddrField(`${user.address[0].pincode},`, 'pincode')
+            +deliveryAddrField(user.address[0].district, 'district')
+            +deliveryAddrField(`${user.address[0].state},`, 'state')
+            +deliveryAddrField(`Phone No: ${user.address[0].mobileNo}`, 'mobile')
+
+  -if(booking.status !== 'cancelled') 
+    .row
+      .bookingDetails
+        .fixed-col-1-of-2
+          .estimateDate__label Expected Delivery: 
+        .fixed-col-1-of-2
+          .estimateDate__data= `${new Date().getDate() + 2}th - ${new Date().getDate() + 4}th ${new Date().toLocaleString('en-us',{month: 'long'})}` 
+    
+
+  //-if(!products) 
+    -products = [product];
+
+  each el in booking.product
+    .row
+      .bookingDetails.bookingDetails--bg.cart.subtle_shadow--1(data-productId=`${el.productId.id}`)
+        .fixed-col-1-of-3
+          img.cart__img.orderDetail__img(src=`/images/Product Categories/${el.productId.productCategory.slug}/${el.productId.productSubCategory.slug}/${el.productId.images[0]}` alt=``)
+                
+        .fixed-col-2-of-3
+          .cart__info
+            .cart__info__brand= el.productId.brand
+            .cart__info__description= el.productId.name
+            .cart__info__price.bookingDetails__itemPrice &#8377; #{el.productId.sellingPrice}
+            .cart__info--quantityFix= `Quantity: ${el.quantity}`
+  
+  // Payment Method
+  .row 
+    .bookingDetails
+      .col-1-of-2
+        .paymentOption__label Payment method:
+      .col-1-of-2
+        .paymentOption__data
+          span Cash on Delivery(COD)
+
+  // Total Amount
+  .row
+    .bookingDetails
+      .fixed-col-1-of-2
+        .totalBilling__label Total Amount to be paid:
+      .fixed-col-1-of-2
+        -let total = 0;
+        -for(let i = 0; i < booking.product.length; i++) 
+          -total = booking.product[i].productId.sellingPrice * booking.product[i].quantity
+        .totalBilling__data.bookingDetail__totalPrice &#8377; #{total}
+
+  -if(booking.status !== 'cancelled') 
+    .row 
+      .bookingDetails.bookingDetails__btnOrder        
+        a.btn__orderCancel.btnDesign--primary(data-userid=`${user.id}` data-bookingid=`${booking.id}`) Cancel Order
+

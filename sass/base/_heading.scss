@@ -1,0 +1,67 @@
+.heading {
+  color: $default-text-color;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  word-spacing: 2px;
+  &-wrapper {
+    border-bottom: 1px solid $color-grey-light-3;
+    padding: 1.2rem 0;
+    background-color: $color-white;
+  }
+
+  &--primary {
+    font-size: 3rem;
+
+    @include respond(phone) {
+      font-size: 2.4rem;
+    }
+  }
+
+  &--secondary {
+    font-size: 2.5rem;
+
+    @include respond(phone) {
+      font-size: 2rem;
+    }
+  }
+
+  &--tertiary {
+    font-size: 2rem;
+    text-transform: none;
+    @include respond(phone) {
+      font-size: 1.7rem;
+    }
+  }
+
+  &--design1,
+  &--design2 {
+    color: transparent;
+
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  &--design1 {
+    background-image: linear-gradient(
+      to right bottom,
+      $color-primary,
+      $color-primary-dark
+    );
+  }
+  &--design2 {
+    background-image: linear-gradient(
+      to right,
+      $color-tertiary,
+      $color-primary
+    );
+  }
+
+  &--colorDark {
+    color: $color-primary-dark;
+  }
+
+  &--colorTertiary {
+    color: $color-tertiary;
+  }
+}

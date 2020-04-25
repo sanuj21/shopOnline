@@ -1,0 +1,151 @@
+.bookingDetails {
+  width: 70%;
+  margin: auto;
+  margin-top: 2rem;
+  @include clearfix;
+  padding: 2rem 0rem;
+  font-size: 1.6rem;
+
+  &--bg {
+    border: 1px solid $color-grey-light-4;
+    background-color: $color-white;
+    padding: 2rem 5rem;
+  }
+
+  &__mainHeading {
+    font-size: 2.5rem;
+    padding: 1rem 0;
+    @include respond(phone) {
+      padding: 1rem 0 !important;
+      font-size: 1.8rem !important;
+    }
+  }
+  @include respond(phone) {
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__confirmPara {
+    margin-top: -2rem;
+    padding: 0;
+  }
+
+  @include respond(tab) {
+    width: 100%;
+  }
+
+ 
+}
+
+.deliveryAddr {
+  &__heading {
+    margin-top: 3rem;
+
+    @include respond(phone) {
+      margin-top: 0;
+    }
+  }
+  font-size: 1.4rem;
+  border: 1px solid $color-grey-light-4;
+  background-color: $color-white;
+
+  border-radius: 0.3rem;
+  padding: 2rem;
+  &__field {
+    display: inline-block;
+    line-height: 1.8;
+    margin-right: 0.5rem;
+
+    &--name, &--mobile {
+      display: block;
+      font-weight: 500;
+    }
+  }
+
+  &__option {
+    margin-top: 1rem;
+    & select {
+
+      padding: 0.5rem 1rem;
+
+      & option {
+      }
+    }
+  }
+}
+
+.totalBilling {
+  padding: 1rem 2rem;
+  &__label,
+  &__data {
+    font-size: 1.8rem;
+    color: $color-primary-dark;
+    white-space: nowrap;
+
+    @include respond(phone) {
+      font-size: 1.6rem;
+    }
+  }
+  &__data {
+    text-align: right;
+  }
+}
+
+.paymentOption {
+  &__label,
+  &__data {
+    color: $color-primary-dark;
+  }
+  &__data {
+    display: block;
+    text-align: right;
+
+    @include respond(phone) {
+      text-align: left;
+    }
+
+    &__inner {
+      display: inline-block;
+      text-align: left;
+    }
+  }
+
+  &__category {
+    &__notice {
+      font-size: 1.3rem;
+      color: $color-error;
+      margin-left: 1rem;
+    }
+    &:not(:last-child) {
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// Estimated Date
+.estimateDate {
+  &__label,
+  &__data {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.cartItem__remove {
+  float: right;
+}
+
+.order__confirmed__para {
+  margin-top: 0;
+  padding: 0;
+}
+
+.orderDetail__img {
+  height: 21rem;
+}

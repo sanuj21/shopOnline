@@ -1,0 +1,70 @@
+.notice {
+    border: 1.5px solid $color-grey-light-1;
+    background-color: $color-white;
+    width: 70%;
+    margin: 5rem auto;
+    padding: 3rem 4rem;
+    box-shadow: 0 4rem 8rem rgba(0, 0, 0, .1);
+    position: relative;
+
+    @include respond(phone) {
+        width: 90%;
+    }
+
+    &:after,
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 123234;
+        top: 0;
+        left: 0;
+    }
+
+    &:after {
+        clip-path: polygon(0% 100%, 0 0%, 100% 100%, 100% 0%);
+        animation: rotateNoticeAf 2s ease 1s forwards;
+        background: $color-primary;
+    }
+
+    &:before {
+        clip-path: polygon(100% 0%, 0 0%, 100% 100%, 0% 100%);
+        animation: rotateNoticeBf 2s ease 1s forwards;
+        background: $color-tertiary;
+    }
+
+
+
+    &__header {
+        font-size: 1.8rem;
+        padding: .7rem 3rem;
+        background: linear-gradient(to right, $color-primary, $color-tertiary 90%);
+        display: inline-block;
+        color: $color-white;
+        border-radius: .3rem;
+        margin-bottom: 3rem;
+    }
+
+    &__body {
+        font-size: 1.6rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+
+    &__footer {
+      @include clearfix;
+    }
+}
+
+
+@keyframes rotateNoticeAf {
+    0%{ transform: rotate(0deg) scale(1);}
+    60% {transform: rotate(340deg) scale(.4);}
+    100% { transform: rotate(360deg) scale(0);}
+}
+@keyframes rotateNoticeBf {
+    0%{ transform: rotate(0deg) scale(1);}
+    60% {transform: rotate(-340deg) scale(.4);}
+    100%{ transform: rotate(-360deg) scale(0);}
+}

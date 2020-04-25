@@ -1,0 +1,62 @@
+extends base 
+
+mixin addressField(label, data)
+  .myAddress__field
+    .myAddress__field__label= `${label}: `
+    .myAddress__field__data= data
+
+mixin address(addr, i)
+  .mb--col-1-of-3
+    -if(status === 'booking')
+      label.radio__label
+        -if(i === 0)
+          input(type='radio' name='addressChoice' value = `${i}` checked).radioBtn 
+        -else 
+          input(type='radio' name='addressChoice' value = `${i}`).radioBtn 
+        span.customRadioBtn
+        |Select this Address
+    .myAddress__wrapper.u-margin-bottom-medium
+      .myAddress
+        .myAddress__heading.heading.heading--tertiary= `${i === 0 ? 'Primary Address' :  `Address ${i+1}`}` 
+        +addressField('Name', addr.name)
+        +addressField('Mobile', addr.mobileNo)
+        +addressField('House No', addr.houseNo)
+        +addressField('Street', addr.street)
+        +addressField('Locality', addr.locality)
+        +addressField('City', addr.city)
+        +addressField('Pincode', addr.pincode)
+        +addressField('District', addr.district)
+        +addressField('State', addr.state)
+        +addressField('Country', addr.country)
+      a.btnDesign--tertiary.myAddress__btnEdit(href=`/myAccount/editAddress/${status === 'booking' ? `${addr.id}/booking` : addr.id}`) Edit
+      ion-icon.myAddress__btnDelete(name='trash' data-addressid = `${addr.id}`)
+
+
+
+block content
+  .row
+    .heading.heading--secondary.heading--colorTertiary.u-margin-top-medium.u-margin-bottom-medium=`${status !== 'booking' ? 'My Addresses' : 'Choose a Delivery Address'}`
+  .row
+    -if(user.address.length > 0)  
+      -for(let i = 0; i < user.address.length; i++)
+        +address(user.address[i], i)
+
+    .mb--col-1-of-3
+      -if(user.address.length === 0) 
+        p.para You have not added any address yet!
+      a.account__dashboard__item.addAddress__item(href= `/myAccount/addAddress${status === 'booking' ? `/booking` : ''}` class = `${status === 'booking' ? 'addAddress__item__marginTop' : ''}`)
+        ion-icon.account__dashboard__item__icon.addAddress__icon(name='add-circle-outline')
+        .account__dashboard__item__info.addAddress__title Add a Address
+
+  // Proceed Furthure Button
+  -if(status === 'booking')
+    .row 
+        a.btn__chooseAddressProceed.btnDesign--primary Proceed to Checkout
+          span.btn--arrowIcon &rarr;
+
+    
+    
+    
+      
+
+

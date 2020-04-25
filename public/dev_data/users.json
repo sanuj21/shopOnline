@@ -1,0 +1,82 @@
+[
+  {
+    "_id": "5c8a34ed14eb5c17645c9131",
+    "name": "Anuj Sharma",
+    "email": "anuj_sharma@gmail.com",
+    "password": "",
+    "role": "user",
+    "emailConfirmed": "true",
+    "address": {
+      "name": "Anuj Sharma",
+      "houseNo": "Flat No: 13",
+      "street": "Damodar Colony",
+      "locality": "Bhangarwadi",
+      "city": "Lonavala",
+      "pincode": "410401",
+      "state": "Maharashtra",
+      "Country": "India",
+      "MobileNo": "8698959442"
+    },
+    "active": true
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9134",
+    "name": "Ayush Sharma",
+    "email": "ayush_sharma@gmail.com",
+    "password": "",
+    "role": "user",
+    "emailConfirmed": "true",
+    "address": {
+      "name": "Ayush Sharma",
+      "houseNo": "Flat No: 13",
+      "street": "Damodar Colony",
+      "locality": "Bhangarwadi",
+      "city": "Lonavala",
+      "pincode": "410401",
+      "state": "Maharashtra",
+      "Country": "India",
+      "MobileNo": "8698959442"
+    },
+    "active": true
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9132",
+    "name": "Punit Raysoni",
+    "email": "punit_raysoni@gmail.com",
+    "password": "",
+    "role": "seller",
+    "emailConfirmed": "true",
+    "address": {
+      "name": "Punit Raysoni",
+      "houseNo": "Flat No: 10",
+      "street": "Damodar Colony",
+      "locality": "Unknown Empire",
+      "city": "Kamshet",
+      "pincode": "400401",
+      "state": "Maharashtra",
+      "Country": "India",
+      "MobileNo": "8698959442"
+    },
+    "active": true
+  },
+  {
+    "_id": "5c8a34ed14eb5c17645c9133",
+    "name": "Prathmesh Lendghar",
+    "email": "prathmesh_lendghar@gmail.com",
+    "password": "",
+    "role": "admin",
+    "emailConfirmed": "true",
+    "address": {
+      "name": "Prathmesh Lendghar",
+      "houseNo": "Flat No: 7",
+      "street": "Chitle Dhoodh",
+      "locality": "Bhangarwadi",
+      "city": "Lonavala",
+      "pincode": "410401",
+      "state": "Maharashtra",
+      "Country": "India",
+      "MobileNo": "7378725402"
+    },
+    "active": true
+  }
+]

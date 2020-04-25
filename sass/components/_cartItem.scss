@@ -1,0 +1,90 @@
+.cart {
+  position: relative;
+
+  &__img {
+    height: 25rem;
+
+    @include respond(phone) {
+      height: 17rem !important;
+    }
+  }
+
+  &__info {
+    margin-top: 4rem;
+    margin-left: 2rem;
+
+    @include respond(phone) {
+      margin-top: 1rem;
+    }
+
+    & > * {
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+
+        @include respond(phone) {
+          margin-bottom: 0.7rem;
+        }
+      }
+    }
+    &__brand {
+      color: $color-primary;
+      font-weight: 500;
+    }
+
+    &--quantity {
+      border: 1px solid $color-primary-dark;
+      display: inline-block;
+      margin-top: 2rem;
+      @include respond(phone) {
+        margin-top: 0.5rem;
+      }
+      &__data {
+        text-align: center;
+        width: 5rem;
+        display: inline-block;
+        padding: 0.3rem 0.6rem;
+        height: 100%;
+        outline: none;
+        border: none;
+        font-size: 1.6rem;
+        vertical-align: middle;
+      }
+
+      &__plus,
+      &__minus {
+        color: $color-primary-dark;
+        margin-right: 0;
+        padding: 0.7rem 1rem;
+        font-size: 2rem;
+        vertical-align: middle;
+        cursor: pointer;
+         
+        @include respond(phone) {
+          padding: .5rem .8rem;
+        }
+      }
+
+      &__plus {
+        border-left: 1px solid $color-primary-dark;
+      }
+      &__minus {
+        border-right: 1px solid $color-primary-dark;
+      }
+    }
+  }
+
+  .cart__removeBtn {
+    color: $color-error;
+    font-size: 2.5rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+
+    @include respond(phone) {
+      top: 1rem;
+      font-size: 2rem;
+      right: 1rem;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+.btnDesign--primary {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  float: right;
+  display: inline-block;
+  text-decoration: none;
+  color: $color-white;
+  background: linear-gradient(
+    to right,
+    $color-primary,
+    $color-tertiary
+  );
+  padding: 0.7rem 3rem;
+  border-radius: 0.3rem;
+}
+
+.btnDesign--secondary {
+  border-bottom: 1.5px dotted $color-primary;
+  padding: .2px;
+  font-weight: 500;
+  color: $color-primary;
+}
+
+.btnDesign--tertiary {
+  border: 1px solid $default-text-color;
+  padding: .5rem 1.5rem;
+  font-size: 1.4rem;
+  color: $default-text-color
+}
+
+.btn__text {
+  vertical-align: middle;
+}
+
+.btn--arrowIcon {
+  font-size: 3rem;
+  line-height: .5;
+}
+
+// Custom Radio Button
+
+.customRadioBtn {
+  display: inline-block;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  vertical-align: bottom;
+  border: .4rem solid $color-tertiary;
+  position: relative;
+  margin-right: 1rem;
+}
+
+.customRadioBtn:after {
+  content: '';
+  width: .7rem;
+  height: .7rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: $color-tertiary;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.radioBtn {
+  display: none;
+}
+
+.radioBtn:checked ~ .customRadioBtn:after{
+  display: block;
+}
+
+.radio__label {
+  font-size: 1.6rem;
+  margin-left: 5%;
+  display: inline-block;
+  margin-bottom: 2rem;;
+}
