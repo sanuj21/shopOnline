@@ -18,15 +18,15 @@ const createSendToken = (user, statusCode, res, next) => {
         'A email confirmation has sent to your email. Please confirm to proceed furthure'
     });
   } else {
-    res.status(200).json({
-      status: 'success',
-      token
-    });
     res.cookie('jwt', token, {
       expires: new Date(
         Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
       ),
       httpOnly: true
+    });
+    res.status(200).json({
+      status: 'success',
+      token
     });
   }
 };
