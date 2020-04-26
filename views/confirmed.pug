@@ -4,7 +4,8 @@ block content
   -if(status === 'order')
     .row 
       .notice
-        .notice__body Congratulations!! Your order has been successfully placed!!
+        .notice__body 
+          span.color--primary Congratulations!! Your order has been successfully placed!!
           br
           |Your order confimation has been sent to your registered email #{user.email}. Do check it!!
         .notice__footer

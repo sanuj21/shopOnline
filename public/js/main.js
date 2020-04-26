@@ -90,8 +90,10 @@ if (baseView.DOMElements.formSignup) {
 /* ###### */
 
 // ## When Logout Button is clicked
-if (baseView.DOMElements.logoutBtn) {
-  baseView.DOMElements.logoutBtn.addEventListener('click', authenticate.logout);
+if (baseView.DOMElements.logoutBtns.length > 0) {
+  baseView.DOMElements.logoutBtns.forEach(el => {
+    el.addEventListener('click', authenticate.logout);
+  });
 }
 /* ###### */
 
@@ -137,7 +139,12 @@ if (baseView.DOMElements.addressInfo.pincode) {
         )}`
       });
 
-      if (res.data[0].Status === 'Error') {
+      console.log(pinCodeRes);
+      if (
+        !pinCodeRes.data ||
+        pinCodeRes.data[0].Status === 'Error' ||
+        pinCodeRes.data[0].Status === '404'
+      ) {
         utilities.renderAlertSecondary('Please Enter a valid pincode');
         return;
       }

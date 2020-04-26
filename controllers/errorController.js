@@ -38,6 +38,7 @@ const sendErrorProd = (err, req, res) => {
   }
 
   // Unknown Error
+  console.log(err);
   res.status(500).json({
     status: 'error',
     message: 'Something went wrong!'

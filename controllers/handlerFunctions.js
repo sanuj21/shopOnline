@@ -117,11 +117,15 @@ exports.getAll = Model =>
 // Create a Document
 exports.createOne = Model =>
   catchAsync(async (req, res, next) => {
+    console.log('In create');
     const doc = await Model.create(req.body);
+    console.log(doc);
 
     if (doc.bookedOn) {
       const myOrdersUrl = `${req.protocol}://${req.hostname}:${process.env.PORT}/myAccount/orders`;
+      console.log(req.user);
       await new Email(req.user, myOrdersUrl).sendOrderConfirmation();
+      console.log('Fine');
     }
     res.status(201).json({
       status: 'success',

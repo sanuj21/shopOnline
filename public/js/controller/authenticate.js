@@ -29,7 +29,7 @@ export const login = async (email, password, st = '') => {
           `We've sent you a email!!! Please confirm it to activate your account!!`
         );
       } else {
-        location.assign('/');
+        window.location.assign('/');
       }
     }
   } catch (err) {

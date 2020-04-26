@@ -20,7 +20,7 @@ export const DOMElements = {
   newPassword: document.querySelector(`.newPassword`),
   confirmPassword: document.querySelector(`.confirmPassword`),
   passwordCommonObj: document.querySelector(`.form__field__password input`),
-  logoutBtn: document.querySelector('.btn--logout'),
+  logoutBtns: Array.from(document.querySelectorAll('.btn--logout')),
   toggleBtnPassword: Array.from(
     document.querySelectorAll('.password__toggleBtn')
   ),
