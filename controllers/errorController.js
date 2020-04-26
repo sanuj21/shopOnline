@@ -37,17 +37,18 @@ const sendErrorProd = (err, req, res) => {
   // When data is requested through api
   if (req.originalUrl.startsWith('/api')) {
     if (err.isOperational) {
+      if (err.statusCode === 401) {
+        return res.status(err.statusCode).render('login', {
+          title: 'Login to Continue!!'
+        });
+      }
+
       return res.status(err.statusCode).json({
         status: err.status,
         message: err.message
       });
     }
 
-    if (err.statusCode === 401) {
-      return res.status(err.statusCode).render('login', {
-        title: 'Login to Continue!!'
-      });
-    }
     // When page is requested
     return res.status(err.statusCode).render('error', {
       title: 'Something went wrong!!',
@@ -57,6 +58,12 @@ const sendErrorProd = (err, req, res) => {
 
   // Operational Error, i.e. trusted error
   if (err.isOperational) {
+    if (err.statusCode === 401) {
+      return res.status(err.statusCode).render('login', {
+        title: 'Login to Continue!!'
+      });
+    }
+
     return res.status(err.statusCode).json({
       status: err.status,
       message: err.message
