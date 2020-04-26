@@ -35,7 +35,7 @@ const createSendToken = (user, statusCode, res, next) => {
 const sendConfirmationEmail = catchAsync(async (user, req) => {
   const confirmationToken = await user.createToken('emailConfirmation');
   await user.save({ validateBeforeSave: false });
-  const confirmationURL = `${req.protocol}://${req.hostname}:${process.env.PORT}/confirmEmail/${confirmationToken}`;
+  const confirmationURL = `${req.protocol}://${req.hostname}/confirmEmail/${confirmationToken}`;
 
   await new Email(user, confirmationURL).sendAccountConfirmation();
 });
@@ -148,7 +148,7 @@ exports.forgetPassword = catchAsync(async (req, res, next) => {
 
   // 3) Send the Email
 
-  const resetURL = `${req.protocol}://${req.hostname}:${process.env.PORT}/resetPassword/${resetToken}`;
+  const resetURL = `${req.protocol}://${req.hostname}:/resetPassword/${resetToken}`;
   try {
     await new Email(currentUser, resetURL).sendResetToken();
 
