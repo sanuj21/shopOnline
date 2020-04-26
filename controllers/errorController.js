@@ -21,6 +21,11 @@ const sendErrorDev = (err, req, res) => {
   }
   // When page is requested
   else {
+    if (err.statusCode === 401) {
+      return res.status(err.statusCode).render('login', {
+        title: 'Login to Continue!!'
+      });
+    }
     res.status(err.statusCode).render('error', {
       title: 'Something went wrong!!',
       message: err.message
@@ -29,6 +34,27 @@ const sendErrorDev = (err, req, res) => {
 };
 
 const sendErrorProd = (err, req, res) => {
+  // When data is requested through api
+  if (req.originalUrl.startsWith('/api')) {
+    if (err.isOperational) {
+      return res.status(err.statusCode).json({
+        status: err.status,
+        message: err.message
+      });
+    }
+
+    if (err.statusCode === 401) {
+      return res.status(err.statusCode).render('login', {
+        title: 'Login to Continue!!'
+      });
+    }
+    // When page is requested
+    return res.status(err.statusCode).render('error', {
+      title: 'Something went wrong!!',
+      message: err.message
+    });
+  }
+
   // Operational Error, i.e. trusted error
   if (err.isOperational) {
     return res.status(err.statusCode).json({
@@ -39,9 +65,9 @@ const sendErrorProd = (err, req, res) => {
 
   // Unknown Error
   console.log(err);
-  res.status(500).json({
-    status: 'error',
-    message: 'Something went wrong!'
+  return res.status(err.statusCode).render('error', {
+    title: 'Something went wrong!',
+    msg: 'Please try again later!'
   });
 };
 
@@ -56,7 +82,7 @@ module.exports = (err, req, res, next) => {
     error.message = err.message;
 
     if (error.code === 11000) error = handleDublicateErrorDB();
-    if (error.message === 'ValidationError') error = handleValidationErrorDB();
+    if (error.name === 'ValidationError') error = handleValidationErrorDB();
 
     sendErrorProd(error, req, res);
   }

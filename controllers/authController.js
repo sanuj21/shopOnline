@@ -88,7 +88,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   if (!token)
     return next(
-      new AppError('User is not logged in! Please login to get access')
+      new AppError('User is not logged in! Please login to get access', 401)
     );
 
   // 2) Validate token
@@ -99,14 +99,14 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   if (!currentUser) {
     return next(
-      new AppError('The user belonging to the token do not exist now')
+      new AppError('The user belonging to the token do not exist now', 400)
     );
   }
 
   // 4) Check if the user changed password after token was issued
   if (currentUser.changedPasswordAfter(decoded.iat)) {
     return next(
-      new AppError('User recently changed password!! Please login again')
+      new AppError('User recently changed password!! Please login again', 400)
     );
   }
 
