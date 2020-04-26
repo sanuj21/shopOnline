@@ -30,7 +30,7 @@ exports.getProducts = catchAsync(async (req, res, next) => {
   });
 
   res.status(200).render('productList', {
-    title: productSubCategorySpecfic.name,
+    title: `Showing result of ${productSubCategorySpecfic.name}`,
     products
   });
 });

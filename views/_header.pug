@@ -86,7 +86,7 @@ mixin headerUserInfo(label, route)
       -if(user)  
         a.modalNav__header__title(href='/myAccount')
           ion-icon.person-icon--mobile(name='person-circle-outline')
-          span.modalNav__header__title__text= `${user.name.split(' ')[0]}`
+          span.modalNav__header__title__text= `Hello ${user.name.split(' ')[0]}`
       ion-icon.modalNav__close(name='close-outline')
     .modalNav__body
       .modalNav__body__list

@@ -17,8 +17,8 @@ block content
               .card--category__img__caption
                 .card--category__img__caption__content= el.name 
             .card--category__heading
-              .card--category__heading__main Starting from ₹199
-              .card--category__heading__sub  14-30% off
+              .card--category__heading__main= `Starting from ₹${el.minPrice}`
+              .card--category__heading__sub= `${el.minOff}% - 70% off`
 
     .row
       .u-center

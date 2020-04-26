@@ -297,7 +297,7 @@ export const addProductToCart = async (product, quantity) => {
         cart[0] = cartItem;
       }
       utilities.createCookie('cart', JSON.stringify(cart), 10);
-      utilities.renderAlertPrimary('true', 'Item Added to Cart', true);
+      utilities.renderAlertSecondary('Item Added to Cart', true);
       // ####
     }
   } catch (err) {

@@ -18,6 +18,8 @@ const productSubCategorySchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  minPrice: Number,
+  minOff: Number,
   image: {
     type: String
   }
