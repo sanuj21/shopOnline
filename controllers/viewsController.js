@@ -202,29 +202,31 @@ exports.getCartProducts = catchAsync(async (req, res, next) => {
 });
 
 exports.getBookingDetailsCart = catchAsync(async (req, res, next) => {
-  const cartArr = JSON.parse(req.cookies.cart);
-  res.cookie('cart', undefined, {
-    expires: new Date(Date.now() + 10 * 1000)
-  });
+  if (req.params.userType === 'guest') {
+    const cartArr = JSON.parse(req.cookies.cart);
+    res.cookie('cart', undefined, {
+      expires: new Date(Date.now() + 10 * 1000)
+    });
 
-  // Empty the cart in user
-  await User.updateOne(
-    {
-      _id: req.user.id
-    },
-    {
-      $set: { cart: [] }
-    }
-  );
+    // Empty the cart in user
+    await User.updateOne(
+      {
+        _id: req.user.id
+      },
+      {
+        $set: { cart: [] }
+      }
+    );
 
-  // Add the cookies products to cart
-  await User.updateOne(
-    {
-      _id: req.user.id,
-      'cart.product': { $ne: mongoose.Types.ObjectId(req.body.product) }
-    },
-    { $push: { cart: cartArr } }
-  );
+    // Add the cookies products to cart
+    await User.updateOne(
+      {
+        _id: req.user.id,
+        'cart.product': { $ne: mongoose.Types.ObjectId(req.body.product) }
+      },
+      { $push: { cart: cartArr } }
+    );
+  }
 
   await assignCart(req, res, next, 'Preparing your order', 'bookingDetails');
 });

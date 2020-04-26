@@ -28,6 +28,8 @@ export const login = async (email, password, st = '') => {
         customAlerts.alertSecondary(
           `We've sent you a email!!! Please confirm it to activate your account!!`
         );
+      } else {
+        location.assign('/');
       }
     }
   } catch (err) {
@@ -268,7 +270,8 @@ export const addProductToCart = async (product, quantity) => {
           quantity
         }
       });
-      utilities.renderAlertSecondary('Item Added to Cart', true);
+      if (res.data.status === 'success')
+        utilities.renderAlertSecondary('Item Added to Cart', true);
     } else if (baseView.DOMElements.navigation.dataset.user === 'false') {
       // When the user exist than ,than the item is not going to save in cookie
       // Storing the Product Id and quantity in cookie as a cartItem in [array of obj cart]
@@ -429,14 +432,13 @@ export const proceedToBookingDetails = () => {
     }
   });
 
-  if (window.location.pathname.search('chooseAddress/' != -1)) {
+  if (window.location.pathname.search('chooseAddress/') != -1) {
     nextRoute = window.location.pathname.replace('chooseAddress/', '');
     nextRoute = nextRoute + `/${addrArrIndex}`;
-  } else {
+  } else if (window.location.pathname.search('chooseAddress') != -1) {
     nextRoute = window.location.pathname.replace('chooseAddress', '');
     nextRoute = nextRoute + `${addrArrIndex}`;
   }
-
   window.location.assign(`${nextRoute}`);
 };
 

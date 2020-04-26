@@ -17,6 +17,15 @@ export const alertPrimary = (type, msg) => {
   });
 };
 
+const removeSecondaryAlert = resolve => {
+  return () => {
+    document
+      .querySelector('.modalAlert')
+      .parentElement.removeChild(document.querySelector('.modalAlert'));
+    resolve();
+  };
+};
+
 export const alertSecondary = msg => {
   const alertMarkup = `
       <div class = "modalAlert">
@@ -30,11 +39,10 @@ export const alertSecondary = msg => {
         `;
 
   document.querySelector('body').insertAdjacentHTML('beforeend', alertMarkup);
-  document
-    .querySelector('.modalAlert__btn--ok')
-    .addEventListener('click', () => {
-      document
-        .querySelector('.modalAlert')
-        .parentElement.removeChild(document.querySelector('.modalAlert'));
-    });
+
+  return new Promise((resolve, reject) => {
+    document
+      .querySelector('.modalAlert__btn--ok')
+      .addEventListener('click', removeSecondaryAlert(resolve));
+  });
 };

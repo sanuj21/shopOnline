@@ -646,7 +646,7 @@ a {
       @media (max-width: 700px) {
         .footer__nav--2 {
           margin-left: 0;
-          margin-top: 4rem; } }
+          margin-top: 1rem; } }
     .footer__nav__left {
       float: left; }
       @media (max-width: 1000px) {
@@ -677,6 +677,9 @@ a {
           margin-bottom: 0.8rem; }
   .footer__logo {
     height: 6rem; }
+    @media (max-width: 700px) {
+      .footer__logo {
+        height: 5rem; } }
 
 .facebook-icon,
 .twitter-icon,

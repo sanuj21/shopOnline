@@ -3,7 +3,8 @@ import '@babel/polyfill';
 import axios from 'axios';
 import * as baseView from './view/baseView';
 import * as cartView from './view/cartView';
-import * as authenticate from '/controller/authenticate';
+import * as authenticate from './controller/authenticate';
+import * as utilities from './controller/utilities';
 
 /*----- Its for Changing the Responsive Content and Loading Mobile Nav ------*/
 baseView.changeResponsiveContent();
@@ -128,13 +129,22 @@ if (baseView.DOMElements.addressInfo.pincode) {
   baseView.DOMElements.addressInfo.pincode.addEventListener(
     'change',
     async el => {
+      let dataObj;
       const pinCodeRes = await axios({
         method: 'GET',
         url: `https://api.postalpincode.in/pincode/${parseInt(
           baseView.DOMElements.addressInfo.pincode.value
         )}`
       });
-      const dataObj = pinCodeRes.data[0].PostOffice[0];
+
+      if (res.data[0].Status === 'Error') {
+        utilities.renderAlertSecondary('Please Enter a valid pincode');
+        return;
+      }
+
+      if (pinCodeRes.data[0].PostOffice[0])
+        dataObj = pinCodeRes.data[0].PostOffice[0];
+
       if (dataObj) {
         baseView.DOMElements.addressInfo.district.value = dataObj.District;
         baseView.DOMElements.addressInfo.state.value = dataObj.State;

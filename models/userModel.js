@@ -152,7 +152,7 @@ userSchema.methods.createToken = async function(str) {
   if (str === 'passwordReset') {
     // This is used to hash the string
     this.passwordResetToken = hashedToken;
-    this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+    this.passwordResetExpires = Date.now() + 15 * 60 * 1000;
     // Means 1000 * 60 means,, 60 sec i,e 1 min and * 10 means 10 min
     // So the token will expire in 10 minutes
   } else if (str === 'emailConfirmation') {

@@ -47,7 +47,7 @@ export const renderAlertPrimary = async (
 
 // ## For Showing the Alert Secondary
 export const renderAlertSecondary = async (msg, reload, assign = '') => {
-  customAlerts.alertSecondary(msg);
+  await customAlerts.alertSecondary(msg);
   if (reload === true) {
     window.setTimeout(() => location.reload(), 1000);
     return;

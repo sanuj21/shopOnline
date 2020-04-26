@@ -92,6 +92,19 @@ router.get(
   viewsController.getChooseAddress
 );
 
+// For Choosing address when coming from cart
+router.get(
+  '/products/bookProducts/cart/chooseAddress',
+  authController.isLoggedIn,
+  viewsController.getChooseAddress
+);
+
+router.get(
+  '/products/bookProducts/cart/:addrIndex',
+  authController.protect,
+  viewsController.getBookingDetailsCart
+);
+
 // To signup for booking
 router.get(
   '/products/bookProducts/chooseAddress/:subCategorySlug/:productSlug/signup',
@@ -106,19 +119,6 @@ router.get(
 
 router.get(
   '/products/bookProducts/cart/:userType/:addrIndex',
-  authController.protect,
-  viewsController.getBookingDetailsCart
-);
-
-// For Choosing address when coming from cart
-router.get(
-  '/products/bookProducts/cart/chooseAddress',
-  authController.isLoggedIn,
-  viewsController.getChooseAddress
-);
-
-router.get(
-  '/products/bookProducts/cart/:addrIndex',
   authController.protect,
   viewsController.getBookingDetailsCart
 );
