@@ -1,5 +1,9 @@
 /* eslint-disable */
 
+// NOTE :
+// THIS FILE IS ONLY FOR TESTING PURPOSES
+// IT IS NOT INCLUDED IN THE PRODUCTION VERSION
+
 // RENDERING BASIC TEMPLATE OF WEBSITE
 const renderBasicTemplate = () => {
   // Top Navigation

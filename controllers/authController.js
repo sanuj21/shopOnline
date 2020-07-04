@@ -10,20 +10,21 @@ const createSendToken = (user, statusCode, res, next) => {
     expiresIn: process.env.TOKEN_VALIDITY
   });
 
+  res.cookie('jwt', token, {
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+    ),
+    httpOnly: true
+  });
+
   if (!user.emailConfirmed) {
     res.status(200).json({
       status: 'error',
       issue: 'emailNotConfirmed',
-      message:
-        'A email confirmation has sent to your email. Please confirm to proceed furthure'
+      token,
+      message: 'A email confirmation has sent to your email. Please confirm it'
     });
   } else {
-    res.cookie('jwt', token, {
-      expires: new Date(
-        Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
-      ),
-      httpOnly: true
-    });
     res.status(200).json({
       status: 'success',
       token
@@ -40,6 +41,11 @@ const sendConfirmationEmail = catchAsync(async (user, req) => {
 });
 
 exports.signUp = catchAsync(async (req, res, next) => {
+  const user = await User.findOne({ email: req.body.email });
+  console.log(user);
+  if (user) {
+    return next(new AppError('Email Already Exist!! Please login', 400));
+  }
   const newUser = await User.create({
     name: req.body.name,
     email: req.body.email,

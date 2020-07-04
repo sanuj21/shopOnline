@@ -8,6 +8,8 @@ import * as utilities from './utilities';
 
 /*------ WHEN LOGIN ROUTE IS HITTED -----*/
 export const login = async (email, password, st = '') => {
+  email = email.trim();
+  password = password.trim();
   try {
     const res = await axios({
       method: 'POST',
@@ -25,9 +27,10 @@ export const login = async (email, password, st = '') => {
         res.data.issue === 'emailNotConfirmed'
       ) {
         // Create a modal popup
-        customAlerts.alertSecondary(
-          `We've sent you a email!!! Please confirm it to activate your account!!`
+        await customAlerts.alertSecondary(
+          `We've sent you a email!!! Please confirm it! However, you can use the services!!`
         );
+        window.location.assign('/');
       } else {
         window.location.assign('/');
       }
@@ -61,6 +64,10 @@ export const signup = async (
   passwordConfirm,
   st = ''
 ) => {
+  name = name.trim();
+  email = email.trim();
+  password = password.trim();
+  passwordConfirm = passwordConfirm.trim();
   try {
     const res = await axios({
       method: 'POST',
@@ -87,9 +94,11 @@ export const signup = async (
       res.data.issue === 'emailNotConfirmed'
     ) {
       // Create a modal popup
-      customAlerts.alertSecondary(
-        `We've sent you a email!!! Please confirm it to activate your account!!`
+      await customAlerts.alertSecondary(
+        `We've sent you a email!!! Please confirm it! However, you can use the services!!`
       );
+
+      window.location.assign('/');
     } else {
       utilities.renderAlertSecondary(
         'Account Created successfully',
@@ -105,6 +114,8 @@ export const signup = async (
 
 /*------ WHEN UPDATE_PROFILE IS HITTED (For Updating email and name)-----*/
 export const updateProfile = async (name, email) => {
+  name = name.trim();
+  email = email.trim();
   try {
     const res = await axios({
       method: 'PATCH',
@@ -129,6 +140,9 @@ export const changePassword = async (
   newPassword,
   confirmPassword
 ) => {
+  currentPassword = currentPassword.trim();
+  newPassword = currentPassword.trim();
+  confirmPassword.trim();
   try {
     const res = await axios({
       method: 'PATCH',

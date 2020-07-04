@@ -40,3 +40,11 @@ process.on('unhandledRejection', err => {
     process.exit(1);
   });
 });
+
+//Heroku restart our application every 24 hours..but it does harsfully even if a request is proceessing
+process.on('SIGTERM', () => {
+  console.log('SIGTERM RECIEVED ,, Shutting down...');
+  server.close(() => {
+    console.log('Process terminated');
+  });
+});

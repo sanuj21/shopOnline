@@ -1,12 +1,15 @@
 const AppError = require('../utils/appError');
 
-const handleDublicateErrorDB = () => {
-  const message = `Duplicate value. Please use another one`;
-  return new AppError(message, 404);
+const handleDublicateErrorDB = error => {
+  const message = `Already Exist!!!`;
+  const statusCode = error.statusCode || 500;
+  return new AppError(message, statusCode);
 };
 
-const handleValidationErrorDB = () => {
-  return new AppError('Validation Failed!!', 400);
+const handleValidationErrorDB = error => {
+  const message = error.message || 'Validation Failed!!';
+  const statusCode = error.statusCode || 400;
+  return new AppError(message, statusCode);
 };
 
 const sendErrorDev = (err, req, res) => {
@@ -88,8 +91,9 @@ module.exports = (err, req, res, next) => {
     let error = { ...err };
     error.message = err.message;
 
-    if (error.code === 11000) error = handleDublicateErrorDB();
-    if (error.name === 'ValidationError') error = handleValidationErrorDB();
+    if (error.code === 11000) error = handleDublicateErrorDB(error);
+    if (error.name === 'ValidationError')
+      error = handleValidationErrorDB(error);
 
     sendErrorProd(error, req, res);
   }

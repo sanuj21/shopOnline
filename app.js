@@ -6,6 +6,7 @@ const rateLimit = require('express-rate-limit');
 const xss = require('xss-clean');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const productCategoryRouter = require('./routes/productCategoryRoutes');
 const productSubCategoryRouter = require('./routes/productSubCategoryRoutes');
@@ -52,6 +53,12 @@ app.use(cookieParser());
 app.use(xss());
 
 app.use(compression());
+
+// To enable cross origin requests
+app.use(cors()); // This will only work for simple request get and post,,
+
+// For delete and patch we need use this
+app.options('*', cors());
 
 app.use('/', viewRouter);
 app.use('/api/v1/productCategories', productCategoryRouter);
