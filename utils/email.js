@@ -7,7 +7,7 @@ module.exports = class Email {
     this.to = user.email;
     this.firstName = user.name.split(' ')[0];
     this.url = url;
-    this.from = `Anuj Sharma <anuj992393@gmail.com>`;
+    this.from = `Anuj Sharma <mailtoanuj21@gmail.com>`;
   }
 
   newTransport() {
@@ -42,7 +42,6 @@ module.exports = class Email {
     };
 
     // Create transport and sent email
-
     await this.newTransport().sendMail(mailOptions);
   }
 

@@ -16,7 +16,7 @@ exports.setBaseVar = catchAsync(async (req, res, next) => {
 
 exports.getOverview = catchAsync(async (req, res, next) => {
   res.status(200).render('overview', {
-    title: `itMatters - India's best online fashion store`
+    title: `ShopOnline - India's best online fashion store`
   });
 });
 
@@ -48,13 +48,13 @@ exports.getProduct = catchAsync(async (req, res, next) => {
 
 exports.getLoginForm = (req, res, next) => {
   res.status(200).render('login', {
-    title: 'itMatters - Log into your account'
+    title: 'ShopOnline - Log into your account'
   });
 };
 
 exports.getSignupForm = (req, res, next) => {
   res.status(200).render('signup', {
-    title: 'itMatters - Create an account'
+    title: 'ShopOnline - Create an account'
   });
 };
 
@@ -323,7 +323,7 @@ exports.getCartProductsGuest = catchAsync(async (req, res, next) => {
 
 exports.getSignUpBooking = (req, res, next) => {
   res.status(200).render('signup', {
-    title: 'itMatters - Create an account',
+    title: 'ShopOnline - Create an account',
     status: 'booking'
   });
 };

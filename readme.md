@@ -1,4 +1,4 @@
-# itMatters - A ecommerce Application
+# snapIt - A ecommerce Application
 
 Build using technologies: Nodejs, mongodb, express, mongoose, etc.. 😀
 
